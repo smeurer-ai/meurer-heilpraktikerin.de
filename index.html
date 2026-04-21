@@ -220,13 +220,20 @@
     }
     .hero-botanical-left {
       position: absolute;
-      left: -60px;
-      top: 10%;
-      width: 30%;
-      max-width: 320px;
+      left: -40px;
+      bottom: 0;
+      width: 38%;
+      max-width: 420px;
       z-index: 2;
-      opacity: .05;
+      opacity: .55;
+      mix-blend-mode: screen;
       animation: sway 10s ease-in-out infinite alternate-reverse;
+      pointer-events: none;
+    }
+    .hero-botanical-left img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
     .hero-content {
       position: relative;
@@ -1287,38 +1294,7 @@
     <div class="hero-mesh"></div>
 
     <div class="hero-botanical-left">
-      <!-- Zweig mit Knospen -->
-      <svg viewBox="0 0 280 440" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round">
-        <!-- Hauptast -->
-        <path d="M70 430 Q88 355 108 278 Q126 205 148 145 Q163 98 178 52" stroke-width="4.5"/>
-        <!-- Seitenäste links -->
-        <path d="M82 378 Q55 358 36 342" stroke-width="2.5"/>
-        <path d="M96 316 Q68 296 48 282" stroke-width="2.5"/>
-        <path d="M112 254 Q82 234 62 220" stroke-width="2.5"/>
-        <path d="M126 194 Q98 174 78 162" stroke-width="2"/>
-        <path d="M140 138 Q116 120 98 110" stroke-width="2"/>
-        <!-- Seitenäste rechts -->
-        <path d="M90 358 Q118 340 138 328" stroke-width="2.5"/>
-        <path d="M104 296 Q132 278 154 266" stroke-width="2.5"/>
-        <path d="M118 236 Q146 218 168 206" stroke-width="2"/>
-        <path d="M132 178 Q158 162 178 152" stroke-width="2"/>
-        <path d="M152 120 Q174 106 192 96" stroke-width="2"/>
-        <!-- Knospen (gefüllte Tropfenformen) -->
-        <ellipse cx="34" cy="340" rx="5" ry="8" transform="rotate(-35 34 340)" fill="white" stroke="none"/>
-        <ellipse cx="30" cy="333" rx="3.5" ry="6" transform="rotate(-25 30 333)" fill="white" stroke="none"/>
-        <ellipse cx="46" cy="280" rx="5" ry="8" transform="rotate(-30 46 280)" fill="white" stroke="none"/>
-        <ellipse cx="60" cy="218" rx="5" ry="8" transform="rotate(-25 60 218)" fill="white" stroke="none"/>
-        <ellipse cx="76" cy="160" rx="4.5" ry="7.5" transform="rotate(-20 76 160)" fill="white" stroke="none"/>
-        <ellipse cx="96" cy="108" rx="4" ry="7" transform="rotate(-15 96 108)" fill="white" stroke="none"/>
-        <ellipse cx="140" cy="326" rx="5" ry="8" transform="rotate(25 140 326)" fill="white" stroke="none"/>
-        <ellipse cx="156" cy="264" rx="5" ry="8" transform="rotate(22 156 264)" fill="white" stroke="none"/>
-        <ellipse cx="170" cy="204" rx="4.5" ry="7.5" transform="rotate(20 170 204)" fill="white" stroke="none"/>
-        <ellipse cx="180" cy="150" rx="4" ry="7" transform="rotate(15 180 150)" fill="white" stroke="none"/>
-        <ellipse cx="194" cy="94" rx="4" ry="6.5" transform="rotate(10 194 94)" fill="white" stroke="none"/>
-        <!-- Spitze des Hauptastes -->
-        <ellipse cx="179" cy="46" rx="5.5" ry="10" transform="rotate(8 179 46)" fill="white" stroke="none"/>
-        <ellipse cx="174" cy="36" rx="3.5" ry="6" transform="rotate(5 174 36)" fill="white" stroke="none"/>
-      </svg>
+      <img src="3.png" alt="Zweig mit Knospen">
     </div>
 
     <div class="hero-botanical">
