@@ -422,39 +422,19 @@
       from { opacity: 0; }
       to   { opacity: 1; }
     }
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity .7s var(--ease), transform .7s var(--ease);
+    /* Scroll-Animationen deaktiviert – Inhalte sofort sichtbar */
+    .reveal, .reveal-left, .reveal-right {
+      opacity: 1;
+      transform: none;
     }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-left {
-      opacity: 0;
-      transform: translateX(-40px);
-      transition: opacity .7s var(--ease), transform .7s var(--ease);
-    }
-    .reveal-left.visible { opacity: 1; transform: translateX(0); }
-    .reveal-right {
-      opacity: 0;
-      transform: translateX(40px);
-      transition: opacity .7s var(--ease), transform .7s var(--ease);
-    }
-    .reveal-right.visible { opacity: 1; transform: translateX(0); }
     .stagger > * {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity .6s var(--ease), transform .6s var(--ease);
+      opacity: 1;
+      transform: none;
     }
-    .stagger.visible > *:nth-child(1) { opacity:1; transform:translateY(0); transition-delay:.0s; }
-    .stagger.visible > *:nth-child(2) { opacity:1; transform:translateY(0); transition-delay:.1s; }
-    .stagger.visible > *:nth-child(3) { opacity:1; transform:translateY(0); transition-delay:.2s; }
-    .stagger.visible > *:nth-child(4) { opacity:1; transform:translateY(0); transition-delay:.3s; }
-    .stagger.visible > *:nth-child(5) { opacity:1; transform:translateY(0); transition-delay:.4s; }
-    .stagger.visible > *:nth-child(6) { opacity:1; transform:translateY(0); transition-delay:.5s; }
 
     /* ─── ABOUT ─────────────────────────────────────────── */
     #about {
-      padding: 8rem 0;
+      padding: 5rem 0;
       background: var(--light);
     }
     .about-grid {
@@ -555,7 +535,7 @@
 
     /* ─── LEISTUNGEN ────────────────────────────────────── */
     #leistungen {
-      padding: 8rem 0;
+      padding: 5rem 0;
       background: var(--bg);
     }
     .leistungen-header {
@@ -625,7 +605,7 @@
 
     /* ─── ONLINE SEMINARE — Helles Design ──────────────── */
     #online-seminare {
-      padding: 8rem 0;
+      padding: 5rem 0;
       background: var(--seminare-bg);
       overflow: hidden;
     }
@@ -702,7 +682,11 @@
       overflow: hidden;
       transition: all .4s var(--ease);
       position: relative;
+      display: flex;
+      flex-direction: column;
     }
+    .card-seminar .seminar-body { flex: 1; }
+    .card-seminar .seminar-footer { margin-top: auto; }
     .card-seminar::before {
       content: '';
       position: absolute;
@@ -883,7 +867,7 @@
 
     /* ─── QUOTE SECTION ─────────────────────────────────── */
     #quote {
-      padding: 7rem 0;
+      padding: 4rem 0;
       background: var(--primary);
       text-align: center;
       position: relative;
@@ -927,7 +911,7 @@
 
     /* ─── FAQ ───────────────────────────────────────────── */
     #faq {
-      padding: 8rem 0;
+      padding: 5rem 0;
       background: var(--light);
     }
     .faq-grid {
@@ -1040,7 +1024,7 @@
 
     /* ─── KONTAKT ───────────────────────────────────────── */
     #schreibensiemir {
-      padding: 8rem 0;
+      padding: 5rem 0;
       background: var(--bg);
     }
     .kontakt-grid {
@@ -1303,37 +1287,80 @@
     <div class="hero-mesh"></div>
 
     <div class="hero-botanical-left">
-      <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
-        <g fill="white">
-          <ellipse cx="150" cy="200" rx="8" ry="120" transform="rotate(-20,150,200)"/>
-          <ellipse cx="130" cy="160" rx="50" ry="20" transform="rotate(-40,130,160)"/>
-          <ellipse cx="170" cy="140" rx="45" ry="18" transform="rotate(30,170,140)"/>
-          <ellipse cx="120" cy="220" rx="55" ry="18" transform="rotate(-30,120,220)"/>
-          <ellipse cx="175" cy="240" rx="48" ry="16" transform="rotate(20,175,240)"/>
-          <ellipse cx="110" cy="280" rx="40" ry="14" transform="rotate(-15,110,280)"/>
-        </g>
+      <!-- Zweig mit Knospen -->
+      <svg viewBox="0 0 280 440" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Hauptast -->
+        <path d="M70 430 Q88 355 108 278 Q126 205 148 145 Q163 98 178 52" stroke-width="4.5"/>
+        <!-- Seitenäste links -->
+        <path d="M82 378 Q55 358 36 342" stroke-width="2.5"/>
+        <path d="M96 316 Q68 296 48 282" stroke-width="2.5"/>
+        <path d="M112 254 Q82 234 62 220" stroke-width="2.5"/>
+        <path d="M126 194 Q98 174 78 162" stroke-width="2"/>
+        <path d="M140 138 Q116 120 98 110" stroke-width="2"/>
+        <!-- Seitenäste rechts -->
+        <path d="M90 358 Q118 340 138 328" stroke-width="2.5"/>
+        <path d="M104 296 Q132 278 154 266" stroke-width="2.5"/>
+        <path d="M118 236 Q146 218 168 206" stroke-width="2"/>
+        <path d="M132 178 Q158 162 178 152" stroke-width="2"/>
+        <path d="M152 120 Q174 106 192 96" stroke-width="2"/>
+        <!-- Knospen (gefüllte Tropfenformen) -->
+        <ellipse cx="34" cy="340" rx="5" ry="8" transform="rotate(-35 34 340)" fill="white" stroke="none"/>
+        <ellipse cx="30" cy="333" rx="3.5" ry="6" transform="rotate(-25 30 333)" fill="white" stroke="none"/>
+        <ellipse cx="46" cy="280" rx="5" ry="8" transform="rotate(-30 46 280)" fill="white" stroke="none"/>
+        <ellipse cx="60" cy="218" rx="5" ry="8" transform="rotate(-25 60 218)" fill="white" stroke="none"/>
+        <ellipse cx="76" cy="160" rx="4.5" ry="7.5" transform="rotate(-20 76 160)" fill="white" stroke="none"/>
+        <ellipse cx="96" cy="108" rx="4" ry="7" transform="rotate(-15 96 108)" fill="white" stroke="none"/>
+        <ellipse cx="140" cy="326" rx="5" ry="8" transform="rotate(25 140 326)" fill="white" stroke="none"/>
+        <ellipse cx="156" cy="264" rx="5" ry="8" transform="rotate(22 156 264)" fill="white" stroke="none"/>
+        <ellipse cx="170" cy="204" rx="4.5" ry="7.5" transform="rotate(20 170 204)" fill="white" stroke="none"/>
+        <ellipse cx="180" cy="150" rx="4" ry="7" transform="rotate(15 180 150)" fill="white" stroke="none"/>
+        <ellipse cx="194" cy="94" rx="4" ry="6.5" transform="rotate(10 194 94)" fill="white" stroke="none"/>
+        <!-- Spitze des Hauptastes -->
+        <ellipse cx="179" cy="46" rx="5.5" ry="10" transform="rotate(8 179 46)" fill="white" stroke="none"/>
+        <ellipse cx="174" cy="36" rx="3.5" ry="6" transform="rotate(5 174 36)" fill="white" stroke="none"/>
       </svg>
     </div>
 
     <div class="hero-botanical">
-      <svg viewBox="0 0 600 700" xmlns="http://www.w3.org/2000/svg">
-        <g fill="white">
-          <rect x="290" y="100" width="10" height="500" rx="5"/>
-          <ellipse cx="250" cy="180" rx="80" ry="28" transform="rotate(-35,250,180)"/>
-          <ellipse cx="345" cy="160" rx="85" ry="26" transform="rotate(30,345,160)"/>
-          <ellipse cx="230" cy="280" rx="90" ry="30" transform="rotate(-40,230,280)"/>
-          <ellipse cx="360" cy="260" rx="88" ry="28" transform="rotate(35,360,260)"/>
-          <ellipse cx="215" cy="380" rx="80" ry="26" transform="rotate(-30,215,380)"/>
-          <ellipse cx="375" cy="360" rx="82" ry="25" transform="rotate(25,375,360)"/>
-          <ellipse cx="225" cy="470" rx="70" ry="22" transform="rotate(-25,225,470)"/>
-          <ellipse cx="365" cy="455" rx="72" ry="20" transform="rotate(20,365,455)"/>
-          <circle cx="295" cy="110" r="18"/>
-          <ellipse cx="295" cy="80"  rx="12" ry="22"/>
-          <ellipse cx="268" cy="90"  rx="12" ry="22" transform="rotate(-45,268,90)"/>
-          <ellipse cx="322" cy="90"  rx="12" ry="22" transform="rotate(45,322,90)"/>
-          <ellipse cx="258" cy="115" rx="12" ry="22" transform="rotate(-80,258,115)"/>
-          <ellipse cx="332" cy="115" rx="12" ry="22" transform="rotate(80,332,115)"/>
-        </g>
+      <!-- Gänseblümchen -->
+      <svg viewBox="0 0 600 720" xmlns="http://www.w3.org/2000/svg" fill="white">
+        <!-- Stiel der großen Blüte -->
+        <path d="M310 710 Q305 620 300 530 Q296 455 305 385" fill="none" stroke="white" stroke-width="8" stroke-linecap="round"/>
+        <!-- Blatt links -->
+        <path d="M303 570 Q268 545 248 516 Q274 526 302 550Z"/>
+        <!-- Blatt rechts -->
+        <path d="M301 488 Q340 462 358 432 Q332 448 303 470Z"/>
+        <!-- Blütenblätter groß (12 Stück, um Mittelpunkt 305/330 rotiert) -->
+        <ellipse cx="305" cy="258" rx="22" ry="58" transform="rotate(0   305 330)"/>
+        <ellipse cx="305" cy="258" rx="22" ry="58" transform="rotate(30  305 330)"/>
+        <ellipse cx="305" cy="258" rx="22" ry="58" transform="rotate(60  305 330)"/>
+        <ellipse cx="305" cy="258" rx="22" ry="58" transform="rotate(90  305 330)"/>
+        <ellipse cx="305" cy="258" rx="22" ry="58" transform="rotate(120 305 330)"/>
+        <ellipse cx="305" cy="258" rx="22" ry="58" transform="rotate(150 305 330)"/>
+        <ellipse cx="305" cy="258" rx="22" ry="58" transform="rotate(180 305 330)"/>
+        <ellipse cx="305" cy="258" rx="22" ry="58" transform="rotate(210 305 330)"/>
+        <ellipse cx="305" cy="258" rx="22" ry="58" transform="rotate(240 305 330)"/>
+        <ellipse cx="305" cy="258" rx="22" ry="58" transform="rotate(270 305 330)"/>
+        <ellipse cx="305" cy="258" rx="22" ry="58" transform="rotate(300 305 330)"/>
+        <ellipse cx="305" cy="258" rx="22" ry="58" transform="rotate(330 305 330)"/>
+        <!-- Blütenmitte groß -->
+        <circle cx="305" cy="330" r="44"/>
+        <!-- Seitenast zur kleinen Blüte -->
+        <path d="M308 398 Q348 340 390 268" fill="none" stroke="white" stroke-width="6" stroke-linecap="round"/>
+        <!-- Kleine Blüte (9 Blütenblätter, Mittelpunkt 392/222) -->
+        <ellipse cx="392" cy="158" rx="14" ry="38" transform="rotate(0   392 222)"/>
+        <ellipse cx="392" cy="158" rx="14" ry="38" transform="rotate(40  392 222)"/>
+        <ellipse cx="392" cy="158" rx="14" ry="38" transform="rotate(80  392 222)"/>
+        <ellipse cx="392" cy="158" rx="14" ry="38" transform="rotate(120 392 222)"/>
+        <ellipse cx="392" cy="158" rx="14" ry="38" transform="rotate(160 392 222)"/>
+        <ellipse cx="392" cy="158" rx="14" ry="38" transform="rotate(200 392 222)"/>
+        <ellipse cx="392" cy="158" rx="14" ry="38" transform="rotate(240 392 222)"/>
+        <ellipse cx="392" cy="158" rx="14" ry="38" transform="rotate(280 392 222)"/>
+        <ellipse cx="392" cy="158" rx="14" ry="38" transform="rotate(320 392 222)"/>
+        <!-- Mitte kleine Blüte -->
+        <circle cx="392" cy="222" r="28"/>
+        <!-- Blatt am Seitenast -->
+        <path d="M352 318 Q330 300 318 278 Q338 290 356 308Z"/>
       </svg>
     </div>
 
