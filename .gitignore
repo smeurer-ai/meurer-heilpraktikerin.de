@@ -1,0 +1,18 @@
+# Temporäre Office-Dateien
+~$*
+*.tmp
+
+# Entpackte DOCX-Ordner
+unpacked/
+unpacked_doc/
+unpacked2/
+
+# DOCX-Änderungsdatei (nur intern)
+Website_Aenderungen.docx
+
+# Farbpalette (kein Website-Inhalt)
+Farbpalette_Meurer.png
+
+# System-Dateien
+.DS_Store
+Thumbs.db

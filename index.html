@@ -1,0 +1,2029 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stephanie Meurer – Heilpraktikerin & Dozentin | Viechtach</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── CSS VARIABLES ────────────────────────────────── */
+    :root {
+      --primary:    #4a7c59;
+      --primary-d:  #3a6347;
+      --primary-l:  #e8f0eb;
+      --accent:     #a01400;
+      --bg:         #f5f0eb;
+      --text:       #44546a;
+      --dark:       #1a2d20;
+      --light:      #faf8f5;
+      --seminare-bg:#eef4f0;
+      --gold:       #b8965a;
+      --white:      #ffffff;
+      --shadow-sm:  0 2px 12px rgba(74,124,89,.10);
+      --shadow:     0 8px 40px rgba(26,45,32,.12);
+      --shadow-lg:  0 24px 80px rgba(26,45,32,.18);
+      --font-h:     'Cormorant Garamond', Georgia, serif;
+      --font-b:     'Raleway', system-ui, sans-serif;
+      --ease:       cubic-bezier(.25,.46,.45,.94);
+      --r:          16px;
+    }
+
+    /* ─── RESET & BASE ─────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-b);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a   { text-decoration: none; color: inherit; }
+    ul  { list-style: none; }
+
+    /* ─── SCROLL PROGRESS BAR ──────────────────────────── */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--primary), var(--gold));
+      z-index: 9999;
+      transition: width .1s linear;
+    }
+
+    /* ─── NAVIGATION ───────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1.25rem 0;
+      transition: all .4s var(--ease);
+    }
+    nav.scrolled {
+      background: rgba(245,240,235,.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 rgba(74,124,89,.12);
+      padding: .85rem 0;
+    }
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    /* Logo: etwas größer, mit Weiß-Filter solange Hero sichtbar */
+    .nav-logo img {
+      height: 54px;
+      transition: all .3s var(--ease);
+      filter: brightness(0) invert(1);
+    }
+    nav.scrolled .nav-logo img {
+      height: 44px;
+      filter: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .nav-links a {
+      font-family: var(--font-b);
+      font-weight: 500;
+      font-size: .875rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--white);
+      position: relative;
+      transition: color .3s;
+    }
+    nav.scrolled .nav-links a { color: var(--text); }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1.5px;
+      background: var(--primary);
+      transition: width .3s var(--ease);
+    }
+    .nav-links a:hover::after,
+    .nav-links a.active::after { width: 100%; }
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .6rem 1.5rem;
+      background: var(--primary);
+      color: var(--white) !important;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: .8rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: all .3s var(--ease);
+    }
+    .nav-cta:hover {
+      background: var(--primary-d);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(74,124,89,.35);
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: .5rem;
+    }
+    .nav-burger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      transition: all .3s;
+      border-radius: 2px;
+    }
+    nav.scrolled .nav-burger span { background: var(--text); }
+
+    /* ─── HERO ──────────────────────────────────────────── */
+    #home {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--dark);
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 120% 80% at 70% 30%, rgba(74,124,89,.5) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 100% at 20% 80%, rgba(26,45,32,.9) 0%, transparent 70%),
+        linear-gradient(135deg, #0f1f14 0%, #1a3d28 40%, #2a5c3a 70%, #1a3020 100%);
+      z-index: 0;
+    }
+    .particles {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .particle {
+      position: absolute;
+      opacity: 0;
+      animation: float-particle linear infinite;
+    }
+    .particle svg { fill: rgba(255,255,255,.12); }
+    @keyframes float-particle {
+      0%   { transform: translateY(100vh) rotate(0deg);   opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: .6; }
+      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+    }
+    .hero-mesh {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(74,124,89,.25) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(184,150,90,.12) 0%, transparent 40%),
+        radial-gradient(circle at 60% 80%, rgba(74,124,89,.15) 0%, transparent 40%);
+      animation: mesh-shift 12s ease-in-out infinite alternate;
+    }
+    @keyframes mesh-shift {
+      0%   { opacity: .6; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1.05); }
+    }
+    .hero-botanical {
+      position: absolute;
+      right: -40px;
+      bottom: -40px;
+      width: 55%;
+      max-width: 700px;
+      z-index: 2;
+      opacity: .08;
+      animation: sway 8s ease-in-out infinite alternate;
+    }
+    @keyframes sway {
+      0%   { transform: rotate(-3deg) scale(1); }
+      100% { transform: rotate(3deg) scale(1.03); }
+    }
+    .hero-botanical-left {
+      position: absolute;
+      left: -60px;
+      top: 10%;
+      width: 30%;
+      max-width: 320px;
+      z-index: 2;
+      opacity: .05;
+      animation: sway 10s ease-in-out infinite alternate-reverse;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 8rem 2.5rem 5rem;
+      width: 100%;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .45rem 1.2rem;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 50px;
+      font-family: var(--font-b);
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.8);
+      margin-bottom: 2rem;
+      backdrop-filter: blur(8px);
+      animation: fade-up .8s var(--ease) .2s both;
+    }
+    .hero-tag::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50%       { transform: scale(1.5); opacity: .5; }
+    }
+    .hero-headline {
+      font-family: var(--font-h);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--white);
+      max-width: 820px;
+      margin-bottom: 1.5rem;
+      animation: fade-up .8s var(--ease) .4s both;
+    }
+    .hero-headline em { font-style: italic; color: #a8d4b3; }
+    .hero-sub {
+      font-size: 1.1rem;
+      font-weight: 400;
+      line-height: 1.75;
+      color: rgba(255,255,255,.7);
+      max-width: 560px;
+      margin-bottom: 3rem;
+      animation: fade-up .8s var(--ease) .6s both;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      animation: fade-up .8s var(--ease) .8s both;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .9rem 2.2rem;
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 50px;
+      font-family: var(--font-b);
+      font-weight: 600;
+      font-size: .9rem;
+      letter-spacing: .05em;
+      cursor: pointer;
+      transition: all .35s var(--ease);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,.2) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .btn-primary:hover {
+      background: var(--primary-d);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(74,124,89,.4);
+    }
+    .btn-primary:hover::before { opacity: 1; }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .9rem 2.2rem;
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255,255,255,.4);
+      border-radius: 50px;
+      font-family: var(--font-b);
+      font-weight: 500;
+      font-size: .9rem;
+      letter-spacing: .05em;
+      cursor: pointer;
+      transition: all .35s var(--ease);
+      backdrop-filter: blur(8px);
+    }
+    .btn-outline:hover {
+      border-color: rgba(255,255,255,.8);
+      background: rgba(255,255,255,.08);
+      transform: translateY(-2px);
+    }
+    .hero-stats {
+      position: absolute;
+      bottom: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      gap: 3.5rem;
+      animation: fade-up .8s var(--ease) 1s both;
+      white-space: nowrap;
+    }
+    .stat-item { text-align: center; color: rgba(255,255,255,.75); }
+    .stat-item .stat-number {
+      display: block;
+      font-family: var(--font-h);
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1;
+    }
+    .stat-item span:last-child {
+      font-size: .75rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* ─── SECTION BASE ──────────────────────────────────── */
+    section { position: relative; }
+    .section-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .section-tag::before {
+      content: '';
+      width: 24px;
+      height: 1.5px;
+      background: var(--primary);
+    }
+    .section-title {
+      font-family: var(--font-h);
+      font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--dark);
+      margin-bottom: 1.25rem;
+    }
+    .section-title em { font-style: italic; color: var(--primary); }
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text);
+      max-width: 600px;
+      line-height: 1.8;
+    }
+
+    /* ─── ANIMATIONS ────────────────────────────────────── */
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity .7s var(--ease), transform .7s var(--ease);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity .7s var(--ease), transform .7s var(--ease);
+    }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity .7s var(--ease), transform .7s var(--ease);
+    }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+    .stagger > * {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .6s var(--ease), transform .6s var(--ease);
+    }
+    .stagger.visible > *:nth-child(1) { opacity:1; transform:translateY(0); transition-delay:.0s; }
+    .stagger.visible > *:nth-child(2) { opacity:1; transform:translateY(0); transition-delay:.1s; }
+    .stagger.visible > *:nth-child(3) { opacity:1; transform:translateY(0); transition-delay:.2s; }
+    .stagger.visible > *:nth-child(4) { opacity:1; transform:translateY(0); transition-delay:.3s; }
+    .stagger.visible > *:nth-child(5) { opacity:1; transform:translateY(0); transition-delay:.4s; }
+    .stagger.visible > *:nth-child(6) { opacity:1; transform:translateY(0); transition-delay:.5s; }
+
+    /* ─── ABOUT ─────────────────────────────────────────── */
+    #about {
+      padding: 8rem 0;
+      background: var(--light);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .about-visual { position: relative; }
+    .about-image-frame {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      background: #c8d8cc;
+    }
+    .about-image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 62% 20%;
+      display: block;
+    }
+    .about-image-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(26,45,32,.25) 100%);
+      pointer-events: none;
+    }
+    .about-badge {
+      position: absolute;
+      bottom: 2rem;
+      right: -1.5rem;
+      background: var(--white);
+      border-radius: var(--r);
+      padding: 1.2rem 1.5rem;
+      box-shadow: var(--shadow);
+      z-index: 2;
+      text-align: center;
+      min-width: 150px;
+    }
+    .about-badge strong {
+      display: block;
+      font-family: var(--font-h);
+      font-size: 2.5rem;
+      line-height: 1;
+      color: var(--primary);
+    }
+    .about-badge span {
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    .about-corner-deco {
+      position: absolute;
+      top: -1.5rem;
+      left: -1.5rem;
+      width: 80px;
+      height: 80px;
+      border-top: 2px solid var(--primary);
+      border-left: 2px solid var(--primary);
+      border-radius: 4px 0 0 0;
+    }
+    .about-text h2 { margin-bottom: 1.5rem; }
+    .about-text p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+    .about-list { margin: 2rem 0; }
+    .about-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: .9rem;
+      padding: .75rem 0;
+      border-bottom: 1px solid rgba(74,124,89,.12);
+      font-size: .95rem;
+      color: var(--text);
+    }
+    .about-list li::before {
+      content: '';
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      border-radius: 50%;
+      background: var(--primary-l);
+      border: 1.5px solid var(--primary);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M6.5 11L3 7.5l1.4-1.4L6.5 8.2 11.6 3l1.4 1.4z' fill='%234a7c59'/%3E%3C/svg%3E");
+      background-size: 14px;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin-top: 2px;
+    }
+
+    /* ─── LEISTUNGEN ────────────────────────────────────── */
+    #leistungen {
+      padding: 8rem 0;
+      background: var(--bg);
+    }
+    .leistungen-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 4rem;
+    }
+    .leistungen-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+    .card-service {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      border: 1px solid rgba(74,124,89,.10);
+      transition: all .4s var(--ease);
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+    }
+    .card-service::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--gold));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .4s var(--ease);
+    }
+    .card-service:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: transparent;
+    }
+    .card-service:hover::before { transform: scaleX(1); }
+    .service-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: var(--primary-l);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+      transition: all .3s var(--ease);
+    }
+    .card-service:hover .service-icon {
+      background: var(--primary);
+      transform: rotate(-5deg) scale(1.05);
+    }
+    .card-service h3 {
+      font-family: var(--font-h);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: .75rem;
+    }
+    .card-service p {
+      font-size: .92rem;
+      line-height: 1.75;
+      color: var(--text);
+    }
+
+    /* ─── ONLINE SEMINARE — Helles Design ──────────────── */
+    #online-seminare {
+      padding: 8rem 0;
+      background: var(--seminare-bg);
+      overflow: hidden;
+    }
+    #online-seminare::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(74,124,89,.3), transparent);
+    }
+    .seminare-photo-banner {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto 3.5rem;
+      padding: 0 2.5rem;
+    }
+    .seminare-photo-banner-inner {
+      border-radius: 20px;
+      overflow: hidden;
+      height: 280px;
+      position: relative;
+    }
+    .seminare-photo-banner-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 60%;
+    }
+    .seminare-photo-banner-inner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(26,45,32,.55) 0%, transparent 60%);
+    }
+    .seminare-photo-overlay {
+      position: absolute;
+      left: 2.5rem;
+      bottom: 2rem;
+      z-index: 1;
+      color: var(--white);
+    }
+    .seminare-photo-overlay .section-tag {
+      color: #a8d4b3;
+      justify-content: flex-start;
+    }
+    .seminare-photo-overlay .section-tag::before { background: #a8d4b3; }
+    .seminare-photo-overlay h2 {
+      font-family: var(--font-h);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.2;
+    }
+    .seminare-sub {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 3.5rem;
+    }
+    .seminare-sub p {
+      font-size: 1.05rem;
+      color: var(--text);
+      line-height: 1.8;
+    }
+    .seminare-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem;
+    }
+    /* Helle Kurs-Karten */
+    .card-seminar {
+      background: var(--white);
+      border: 1px solid rgba(74,124,89,.15);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all .4s var(--ease);
+      position: relative;
+    }
+    .card-seminar::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .card-seminar:nth-child(1)::before { background: linear-gradient(90deg, var(--primary), var(--gold)); }
+    .card-seminar:nth-child(2)::before { background: linear-gradient(90deg, #a01400, #d47060); }
+    .card-seminar:nth-child(3)::before { background: linear-gradient(90deg, var(--primary), #6ab589); }
+    .card-seminar:nth-child(4)::before { background: linear-gradient(90deg, #5a4ab8, #8878d4); }
+    .card-seminar:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: transparent;
+    }
+    .card-seminar:hover::before { opacity: 1; }
+    .seminar-header-strip {
+      padding: 1.75rem 2rem 1.25rem;
+      position: relative;
+    }
+    .seminar-category {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: .9rem;
+      padding: .35rem .9rem;
+      border-radius: 50px;
+    }
+    .cat-phyto   { background: rgba(74,124,89,.12);  color: var(--primary-d);  border: 1px solid rgba(74,124,89,.25); }
+    .cat-homoeo  { background: rgba(184,150,90,.12); color: #8a6c30;           border: 1px solid rgba(184,150,90,.3); }
+    .cat-kompakt { background: rgba(160,20,0,.10);   color: #a01400;           border: 1px solid rgba(160,20,0,.2); }
+    .cat-ausb    { background: rgba(90,74,184,.10);  color: #4a3a94;           border: 1px solid rgba(90,74,184,.2); }
+    .card-seminar h3 {
+      font-family: var(--font-h);
+      font-size: 1.55rem;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.25;
+      margin-bottom: .6rem;
+    }
+    .card-seminar h3 em { font-style: italic; color: var(--primary); }
+    .seminar-tagline {
+      font-size: .9rem;
+      color: var(--text);
+      line-height: 1.65;
+    }
+    .seminar-body {
+      padding: 1.25rem 2rem;
+      border-top: 1px solid rgba(74,124,89,.10);
+    }
+    .seminar-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .detail-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      font-size: .8rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+    .detail-pill svg {
+      width: 14px;
+      height: 14px;
+      fill: none;
+      stroke: var(--primary);
+      stroke-width: 1.8;
+      stroke-linecap: round;
+    }
+    .seminar-features {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      margin-bottom: 1.5rem;
+    }
+    .feature-line {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: .85rem;
+      color: var(--text);
+    }
+    .feature-line::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--primary);
+      flex-shrink: 0;
+    }
+    .seminar-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2rem;
+      border-top: 1px solid rgba(74,124,89,.10);
+      background: rgba(74,124,89,.04);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .seminar-price { display: flex; flex-direction: column; }
+    .price-label {
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text);
+      opacity: .6;
+      margin-bottom: .2rem;
+    }
+    .price-amount {
+      font-family: var(--font-h);
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: var(--dark);
+      line-height: 1;
+    }
+    .price-amount sup { font-size: 1rem; vertical-align: super; }
+    .price-per {
+      font-size: .75rem;
+      color: var(--text);
+      opacity: .55;
+      margin-top: .2rem;
+    }
+    .btn-seminar {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .75rem 1.75rem;
+      border-radius: 50px;
+      font-family: var(--font-b);
+      font-weight: 600;
+      font-size: .82rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all .3s var(--ease);
+      border: none;
+      white-space: nowrap;
+    }
+    .btn-seminar-primary {
+      background: var(--primary);
+      color: var(--white);
+    }
+    .btn-seminar-primary:hover {
+      background: var(--primary-d);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(74,124,89,.35);
+    }
+    .btn-seminar-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid rgba(74,124,89,.35);
+    }
+    .btn-seminar-ghost:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: rgba(74,124,89,.05);
+    }
+    .seminar-platform {
+      text-align: center;
+      margin-top: 3.5rem;
+      color: var(--text);
+      opacity: .55;
+      font-size: .8rem;
+      letter-spacing: .08em;
+    }
+    .seminar-platform strong { opacity: .8; }
+
+    /* ─── QUOTE SECTION ─────────────────────────────────── */
+    #quote {
+      padding: 7rem 0;
+      background: var(--primary);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #quote::before {
+      content: '"';
+      position: absolute;
+      top: -2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-h);
+      font-size: 20rem;
+      color: rgba(255,255,255,.05);
+      line-height: 1;
+      pointer-events: none;
+    }
+    #quote blockquote {
+      font-family: var(--font-h);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--white);
+      max-width: 820px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.45;
+      position: relative;
+      z-index: 1;
+    }
+    #quote cite {
+      font-family: var(--font-b);
+      font-size: .85rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.65);
+      font-style: normal;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── FAQ ───────────────────────────────────────────── */
+    #faq {
+      padding: 8rem 0;
+      background: var(--light);
+    }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 6rem;
+      align-items: start;
+    }
+    .faq-sidebar h2 { margin-bottom: 1.25rem; }
+    .faq-sidebar p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text);
+      margin-bottom: 2rem;
+    }
+    .faq-contact-hint {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      padding: 1.25rem 1.5rem;
+      background: var(--primary-l);
+      border-radius: var(--r);
+      border-left: 3px solid var(--primary);
+    }
+    .faq-contact-hint p {
+      font-size: .875rem;
+      margin: 0;
+      color: var(--primary-d);
+      line-height: 1.5;
+    }
+    .accordion-item { border-bottom: 1px solid rgba(74,124,89,.15); }
+    .accordion-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1.4rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      cursor: pointer;
+      text-align: left;
+    }
+    .accordion-trigger span {
+      font-family: var(--font-b);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--dark);
+      line-height: 1.4;
+    }
+    .accordion-icon {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 50%;
+      background: var(--primary-l);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .3s var(--ease);
+    }
+    .accordion-icon svg {
+      width: 12px;
+      height: 12px;
+      stroke: var(--primary);
+      stroke-width: 2.5;
+      transition: transform .3s var(--ease);
+    }
+    .accordion-item.open .accordion-icon { background: var(--primary); }
+    .accordion-item.open .accordion-icon svg { stroke: white; transform: rotate(45deg); }
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s var(--ease);
+    }
+    .accordion-content p {
+      padding-bottom: 1.4rem;
+      font-size: .95rem;
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    /* ─── RECHTLICHER HINWEIS ───────────────────────────── */
+    #hinweis {
+      padding: 3.5rem 0;
+      background: #f0ede8;
+      border-top: 1px solid rgba(74,124,89,.12);
+    }
+    .hinweis-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+      text-align: center;
+    }
+    .hinweis-inner p {
+      font-size: .82rem;
+      line-height: 1.8;
+      color: var(--text);
+      opacity: .75;
+    }
+    .hinweis-inner strong {
+      display: block;
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: .75rem;
+      opacity: 1;
+    }
+
+    /* ─── KONTAKT ───────────────────────────────────────── */
+    #schreibensiemir {
+      padding: 8rem 0;
+      background: var(--bg);
+    }
+    .kontakt-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .kontakt-info h2 { margin-bottom: 1.25rem; }
+    .kontakt-info p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text);
+      margin-bottom: 2.5rem;
+    }
+    .kontakt-items { display: flex; flex-direction: column; gap: 1.25rem; }
+    .kontakt-item { display: flex; align-items: flex-start; gap: 1rem; }
+    .kontakt-icon {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      border-radius: 12px;
+      background: var(--primary-l);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+    .kontakt-item-text { display: flex; flex-direction: column; gap: .2rem; }
+    .kontakt-item-text strong {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+    .kontakt-item-text span { font-size: .95rem; color: var(--text); }
+    .kontakt-form {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 3rem;
+      box-shadow: var(--shadow);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      margin-bottom: 1.25rem;
+    }
+    .form-group label {
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: .9rem 1.2rem;
+      border: 1.5px solid rgba(74,124,89,.2);
+      border-radius: 10px;
+      font-family: var(--font-b);
+      font-size: .95rem;
+      color: var(--dark);
+      background: var(--bg);
+      transition: border-color .3s, box-shadow .3s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(74,124,89,.12);
+    }
+    .form-group textarea { resize: vertical; min-height: 130px; }
+    .form-submit {
+      width: 100%;
+      padding: 1rem;
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 50px;
+      font-family: var(--font-b);
+      font-size: .95rem;
+      font-weight: 600;
+      letter-spacing: .05em;
+      cursor: pointer;
+      transition: all .35s var(--ease);
+    }
+    .form-submit:hover {
+      background: var(--primary-d);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(74,124,89,.35);
+    }
+
+    /* ─── FOOTER ────────────────────────────────────────── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,.55);
+    }
+    .footer-main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 5rem 2.5rem 3rem;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+    .footer-brand img {
+      height: 44px;
+      margin-bottom: 1.25rem;
+      filter: brightness(0) invert(1);
+      opacity: .7;
+    }
+    .footer-brand p {
+      font-size: .875rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,.4);
+      margin-bottom: 1.5rem;
+    }
+    .footer-title {
+      font-family: var(--font-b);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+      margin-bottom: 1.25rem;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: .7rem; }
+    .footer-links a { font-size: .875rem; color: rgba(255,255,255,.5); transition: color .25s; }
+    .footer-links a:hover { color: rgba(255,255,255,.9); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.07);
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1.75rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-bottom p { font-size: .8rem; color: rgba(255,255,255,.3); }
+    .footer-legal { display: flex; gap: 1.5rem; }
+    .footer-legal a { font-size: .8rem; color: rgba(255,255,255,.3); transition: color .25s; }
+    .footer-legal a:hover { color: rgba(255,255,255,.6); }
+
+    /* ─── MOBILE MENU ───────────────────────────────────── */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: var(--dark);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      transform: translateX(100%);
+      transition: transform .4s var(--ease);
+    }
+    .mobile-menu.open { transform: translateX(0); }
+    .mobile-menu a {
+      font-family: var(--font-h);
+      font-size: 2rem;
+      color: var(--white);
+      opacity: .7;
+      transition: opacity .25s;
+    }
+    .mobile-menu a:hover { opacity: 1; }
+    .mobile-close {
+      position: absolute;
+      top: 2rem; right: 2rem;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 2rem;
+      cursor: pointer;
+      opacity: .7;
+    }
+
+    /* ─── RESPONSIVE ────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .about-grid        { grid-template-columns: 1fr; gap: 3.5rem; }
+      .about-visual      { max-width: 480px; margin: 0 auto; }
+      .leistungen-grid   { grid-template-columns: repeat(2, 1fr); }
+      .faq-grid          { grid-template-columns: 1fr; }
+      .kontakt-grid      { grid-template-columns: 1fr; }
+      .footer-main       { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-burger           { display: flex; }
+      .seminare-grid        { grid-template-columns: 1fr; }
+      .leistungen-grid      { grid-template-columns: 1fr; }
+      .hero-stats           { gap: 2rem; position: relative; bottom: auto; left: auto; transform: none; padding: 2.5rem 2.5rem 4rem; justify-content: center; flex-wrap: wrap; }
+      .hero-content         { padding-bottom: 2rem; }
+      #home                 { align-items: flex-start; }
+      .form-row             { grid-template-columns: 1fr; }
+      .footer-main          { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .about-badge          { right: .5rem; }
+      .seminare-photo-banner-inner { height: 200px; }
+      .seminare-photo-overlay { left: 1.5rem; }
+    }
+    @media (max-width: 480px) {
+      .footer-main          { grid-template-columns: 1fr; }
+      .hero-stats           { flex-direction: column; gap: 1.5rem; align-items: center; }
+      .hero-headline        { font-size: 2.4rem; }
+      .about-badge          { right: 0; }
+      .kontakt-form         { padding: 2rem 1.5rem; }
+      .section-inner        { padding: 0 1.25rem; }
+      .hero-content         { padding-left: 1.25rem; padding-right: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="progress-bar"></div>
+
+  <!-- ─── NAVIGATION ─────────────────────────────────── -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <img src="Namenszug_transparent.png" alt="Stephanie Meurer – Heilpraktikerin">
+      </a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#leistungen">Leistungen</a></li>
+        <li><a href="#online-seminare">Online-Seminare</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#schreibensiemir" class="nav-cta">Termin anfragen ↗</a></li>
+      </ul>
+      <div class="nav-burger" id="menuBtn" role="button" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="menuClose">✕</button>
+    <a href="#home"            onclick="closeMenu()">Home</a>
+    <a href="#leistungen"      onclick="closeMenu()">Leistungen</a>
+    <a href="#online-seminare" onclick="closeMenu()">Online-Seminare</a>
+    <a href="#faq"             onclick="closeMenu()">FAQ</a>
+    <a href="#schreibensiemir" onclick="closeMenu()">Kontakt</a>
+  </div>
+
+  <!-- ─── HERO ───────────────────────────────────────── -->
+  <section id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-mesh"></div>
+
+    <div class="hero-botanical-left">
+      <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+        <g fill="white">
+          <ellipse cx="150" cy="200" rx="8" ry="120" transform="rotate(-20,150,200)"/>
+          <ellipse cx="130" cy="160" rx="50" ry="20" transform="rotate(-40,130,160)"/>
+          <ellipse cx="170" cy="140" rx="45" ry="18" transform="rotate(30,170,140)"/>
+          <ellipse cx="120" cy="220" rx="55" ry="18" transform="rotate(-30,120,220)"/>
+          <ellipse cx="175" cy="240" rx="48" ry="16" transform="rotate(20,175,240)"/>
+          <ellipse cx="110" cy="280" rx="40" ry="14" transform="rotate(-15,110,280)"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="hero-botanical">
+      <svg viewBox="0 0 600 700" xmlns="http://www.w3.org/2000/svg">
+        <g fill="white">
+          <rect x="290" y="100" width="10" height="500" rx="5"/>
+          <ellipse cx="250" cy="180" rx="80" ry="28" transform="rotate(-35,250,180)"/>
+          <ellipse cx="345" cy="160" rx="85" ry="26" transform="rotate(30,345,160)"/>
+          <ellipse cx="230" cy="280" rx="90" ry="30" transform="rotate(-40,230,280)"/>
+          <ellipse cx="360" cy="260" rx="88" ry="28" transform="rotate(35,360,260)"/>
+          <ellipse cx="215" cy="380" rx="80" ry="26" transform="rotate(-30,215,380)"/>
+          <ellipse cx="375" cy="360" rx="82" ry="25" transform="rotate(25,375,360)"/>
+          <ellipse cx="225" cy="470" rx="70" ry="22" transform="rotate(-25,225,470)"/>
+          <ellipse cx="365" cy="455" rx="72" ry="20" transform="rotate(20,365,455)"/>
+          <circle cx="295" cy="110" r="18"/>
+          <ellipse cx="295" cy="80"  rx="12" ry="22"/>
+          <ellipse cx="268" cy="90"  rx="12" ry="22" transform="rotate(-45,268,90)"/>
+          <ellipse cx="322" cy="90"  rx="12" ry="22" transform="rotate(45,322,90)"/>
+          <ellipse cx="258" cy="115" rx="12" ry="22" transform="rotate(-80,258,115)"/>
+          <ellipse cx="332" cy="115" rx="12" ry="22" transform="rotate(80,332,115)"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="particles" id="particles"></div>
+
+    <div class="hero-content">
+      <div class="hero-tag">Heilpraktikerin &amp; Dozentin · Viechtach</div>
+      <h1 class="hero-headline">
+        Ganzheitliche Gesundheit —<br>
+        <em>mit Wurzeln in der Natur</em>
+      </h1>
+      <p class="hero-sub">
+        Klassische Homöopathie, Phytotherapie und ganzheitliche Naturheilkunde
+        für nachhaltige Gesundheit. In meiner Praxis in Viechtach und in meinen
+        Online-Seminaren verbinde ich Tradition mit moderner Therapie.
+      </p>
+      <div class="hero-actions">
+        <a href="#schreibensiemir" class="btn-primary">
+          Termin vereinbaren
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#online-seminare" class="btn-outline">
+          Online-Seminare entdecken
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-number" data-count="20">0</span>
+        <span>Jahre Erfahrung</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" data-count="4">0</span>
+        <span>Online-Seminare</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" data-count="6">0</span>
+        <span>Therapiebereiche</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ───────────────────────────────────────── -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-visual reveal-left">
+          <div class="about-corner-deco"></div>
+          <div class="about-image-frame">
+            <img
+              src="pixeltypen_contentday_20240403_1205071.jpg"
+              alt="Stephanie Meurer – Heilpraktikerin in der Natur">
+          </div>
+          <div class="about-badge">
+            <strong>20+</strong>
+            <span>Jahre Praxis&shy;erfahrung</span>
+          </div>
+        </div>
+
+        <div class="about-text reveal-right">
+          <div class="section-tag">Über mich</div>
+          <h2 class="section-title">
+            Heilpraktikerin aus Leidenschaft &amp;
+            <em>Überzeugung</em>
+          </h2>
+          <p>
+            Als Heilpraktikerin und Dozentin verbinde ich über 20 Jahre Praxiserfahrung
+            mit fundiertem Wissen in klassischer Homöopathie, Phytotherapie und
+            ganzheitlicher Naturheilkunde. In meiner Praxis in Viechtach behandle ich
+            jeden Menschen als einzigartiges Individuum.
+          </p>
+          <p>
+            Gemeinsam und ganzheitlich — das ist mein Leitsatz. Ich begleite Sie auf
+            dem Weg zu nachhaltiger Gesundheit, indem wir Körper, Geist und Seele
+            gleichermaßen berücksichtigen.
+          </p>
+          <ul class="about-list">
+            <li>Klassische Homöopathie nach Hahnemann</li>
+            <li>Phytotherapie, Spagyrik &amp; Gemmotherapie</li>
+            <li>Dozentin an der Schule Isolde Richter</li>
+            <li>Somatic Experiencing bei Trauma</li>
+            <li>Frauenheilkunde &amp; Darmtherapie</li>
+          </ul>
+          <a href="#schreibensiemir" class="btn-primary" style="display:inline-flex; align-items:center; gap:.6rem;">
+            Erstgespräch anfragen
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── LEISTUNGEN ──────────────────────────────────── -->
+  <section id="leistungen">
+    <div class="section-inner">
+      <div class="leistungen-header reveal">
+        <div class="section-tag">Meine Leistungen</div>
+        <h2 class="section-title">Therapie&shy;bereiche, die <em>wirken</em></h2>
+        <p class="section-desc">
+          Jede Behandlung beginnt mit einem ausführlichen Gespräch.
+          Ich nehme mir Zeit — für Ihre Geschichte, Ihre Symptome und Ihre Ziele.
+        </p>
+      </div>
+      <div class="leistungen-grid stagger">
+        <div class="card-service">
+          <div class="service-icon">🌿</div>
+          <h3>Klassische Homöopathie</h3>
+          <p>Individuelle Mittelauswahl nach Hahnemann. Die Therapie behandelt nicht Symptome, sondern den Menschen in seiner Ganzheit.</p>
+        </div>
+        <div class="card-service">
+          <div class="service-icon">🌱</div>
+          <h3>Spagyrik &amp; Gemmotherapie</h3>
+          <p>Europäische Pflanzenheilkunde auf höchstem Niveau. Traditionelle und moderne Phytotherapie für Körper und Psyche.</p>
+        </div>
+        <div class="card-service">
+          <div class="service-icon">🫧</div>
+          <h3>Darmtherapie</h3>
+          <p>Gesunder Darm, gesunder Mensch. Aufbau der gesunden Darmflora als Fundament für Immunsystem und Wohlbefinden.</p>
+        </div>
+        <div class="card-service">
+          <div class="service-icon">🌸</div>
+          <h3>Frauenheilkunde</h3>
+          <p>Naturheilkundliche Unterstützung in allen Lebensphasen der Frau — von Zyklus bis Wechseljahre.</p>
+        </div>
+        <div class="card-service">
+          <div class="service-icon">🤲</div>
+          <h3>Manuelle Therapien</h3>
+          <p>Behandlung des Bewegungsapparates mit sanften manuellen Techniken für Haltung, Schmerz und Mobilität.</p>
+        </div>
+        <div class="card-service">
+          <div class="service-icon">💛</div>
+          <h3>Somatic Experiencing</h3>
+          <p>Körperorientierte Traumatherapie nach Peter Levine. Sanfte Integration belastender Erlebnisse auf somatischer Ebene.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ONLINE SEMINARE ─────────────────────────────── -->
+  <section id="online-seminare">
+
+    <!-- Foto-Banner oben -->
+    <div class="seminare-photo-banner reveal">
+      <div class="seminare-photo-banner-inner">
+        <img
+          src="pixeltypen_contentday_20240403_1205309.jpg"
+          alt="Homöopathische Globuli und Mittel">
+        <div class="seminare-photo-overlay">
+          <div class="section-tag">Weiterbildung &amp; Dozentin</div>
+          <h2>Online-Seminare</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-inner" style="position:relative;z-index:1;">
+      <div class="seminare-sub reveal">
+        <p>
+          Fundiertes Wissen aus der Praxis — live, interaktiv und mit Aufzeichnung.
+          Alle Seminare finden in Kooperation mit der Schule Isolde Richter statt
+          und schließen mit Zertifikat ab.
+        </p>
+      </div>
+
+      <div class="seminare-grid stagger">
+
+        <!-- Kurs 1: Spagyrik & Gemmotherapie -->
+        <div class="card-seminar">
+          <div class="seminar-header-strip">
+            <div class="seminar-category cat-phyto">🌿 Phytotherapie</div>
+            <h3>Pflanzenheilkunde –<br><em>Spagyrik &amp; Gemmotherapie</em></h3>
+            <p class="seminar-tagline">Traditionelle und moderne Pflanzenheilkunde für den ganzen Organismus und die Psyche.</p>
+          </div>
+          <div class="seminar-body">
+            <div class="seminar-details">
+              <span class="detail-pill">
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Nächster Start: geplant 2026
+              </span>
+              <span class="detail-pill">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                5 Blöcke · je 5 Livetermine
+              </span>
+            </div>
+            <div class="seminar-features">
+              <div class="feature-line">Aufzeichnung 6 Monate verfügbar</div>
+              <div class="feature-line">Zertifikat inklusive</div>
+              <div class="feature-line">Spagyrik, Gemmotherapie &amp; Phytotherapie</div>
+              <div class="feature-line">Plattform: Isolde-Richter.de</div>
+            </div>
+          </div>
+          <div class="seminar-footer">
+            <div class="seminar-price">
+              <span class="price-label">ab</span>
+              <span class="price-amount"><sup>€</sup>220</span>
+              <span class="price-per">pro Block</span>
+            </div>
+            <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+              <a href="https://www.isolde-richter.de" target="_blank" class="btn-seminar btn-seminar-ghost">Details →</a>
+              <a href="https://www.isolde-richter.de" target="_blank" class="btn-seminar btn-seminar-primary">Jetzt anmelden</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kurs 2: Homöopathie Kompakt -->
+        <div class="card-seminar">
+          <div class="seminar-header-strip">
+            <div class="seminar-category cat-kompakt">📖 Kompaktkurs</div>
+            <h3>Homöopathie <em>Kompakt</em></h3>
+            <p class="seminar-tagline">Intensiver Einstieg in die klassische Homöopathie — praxisnah, strukturiert und mit sofort anwendbarem Wissen.</p>
+          </div>
+          <div class="seminar-body">
+            <div class="seminar-details">
+              <span class="detail-pill">
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                24.09. – 12.11.2026
+              </span>
+              <span class="detail-pill">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                1 Block · 8 Livetermine
+              </span>
+            </div>
+            <div class="seminar-features">
+              <div class="feature-line">Aufzeichnung 6 Monate verfügbar</div>
+              <div class="feature-line">Zertifikat inklusive</div>
+              <div class="feature-line">Grundlagen bis Fallanalyse</div>
+              <div class="feature-line">Plattform: Isolde-Richter.de</div>
+            </div>
+          </div>
+          <div class="seminar-footer">
+            <div class="seminar-price">
+              <span class="price-label">ab</span>
+              <span class="price-amount"><sup>€</sup>185</span>
+              <span class="price-per">pro Block</span>
+            </div>
+            <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+              <a href="https://www.isolde-richter.de" target="_blank" class="btn-seminar btn-seminar-ghost">Details →</a>
+              <a href="https://www.isolde-richter.de" target="_blank" class="btn-seminar btn-seminar-primary">Jetzt anmelden</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kurs 3: Phytotherapie -->
+        <div class="card-seminar">
+          <div class="seminar-header-strip">
+            <div class="seminar-category cat-phyto">🌾 Pflanzenheilkunde</div>
+            <h3>Phytotherapie –<br><em>Grundlagen &amp; Praxis</em></h3>
+            <p class="seminar-tagline">Von der Pflanze zur Therapie: Heilpflanzen verstehen, anwenden und gezielt einsetzen — für Therapeuten und interessierte Laien.</p>
+          </div>
+          <div class="seminar-body">
+            <div class="seminar-details">
+              <span class="detail-pill">
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Neue Termine in Planung
+              </span>
+              <span class="detail-pill">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                3 Blöcke · je 4 Livetermine
+              </span>
+            </div>
+            <div class="seminar-features">
+              <div class="feature-line">Aufzeichnung 6 Monate verfügbar</div>
+              <div class="feature-line">Zertifikat inklusive</div>
+              <div class="feature-line">Heilpflanzen-Monographien &amp; Rezepturen</div>
+              <div class="feature-line">Plattform: Isolde-Richter.de</div>
+            </div>
+          </div>
+          <div class="seminar-footer">
+            <div class="seminar-price">
+              <span class="price-label">ab</span>
+              <span class="price-amount"><sup>€</sup>190</span>
+              <span class="price-per">pro Block</span>
+            </div>
+            <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+              <a href="https://www.isolde-richter.de" target="_blank" class="btn-seminar btn-seminar-ghost">Details →</a>
+              <a href="https://www.isolde-richter.de" target="_blank" class="btn-seminar btn-seminar-primary">Jetzt anmelden</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kurs 4: Homöopathie Ausbildung -->
+        <div class="card-seminar">
+          <div class="seminar-header-strip">
+            <div class="seminar-category cat-ausb">✨ Ausbildung</div>
+            <h3>Klassische Homöopathie –<br><em>Vollausbildung in 7 Blöcken</em></h3>
+            <p class="seminar-tagline">Die umfassende Ausbildung in klassischer Homöopathie nach Hahnemann — von der Theorie zur eigenständigen Fallanalyse.</p>
+          </div>
+          <div class="seminar-body">
+            <div class="seminar-details">
+              <span class="detail-pill">
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Neue Termine in Planung
+              </span>
+              <span class="detail-pill">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                7 Blöcke · je 5 Livetermine
+              </span>
+            </div>
+            <div class="seminar-features">
+              <div class="feature-line">Aufzeichnung 6 Monate verfügbar</div>
+              <div class="feature-line">Zertifikat &amp; Abschlusszeugnis</div>
+              <div class="feature-line">Materia Medica · Repertorium · Fallanalyse</div>
+              <div class="feature-line">Plattform: Isolde-Richter.de</div>
+            </div>
+          </div>
+          <div class="seminar-footer">
+            <div class="seminar-price">
+              <span class="price-label">ab</span>
+              <span class="price-amount"><sup>€</sup>220</span>
+              <span class="price-per">pro Block</span>
+            </div>
+            <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+              <a href="https://www.isolde-richter.de" target="_blank" class="btn-seminar btn-seminar-ghost">Details →</a>
+              <a href="https://www.isolde-richter.de" target="_blank" class="btn-seminar btn-seminar-primary">Jetzt anmelden</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- .seminare-grid -->
+
+      <p class="seminar-platform reveal">
+        Alle Seminare in Kooperation mit der
+        <strong>Heilpraktiker- &amp; Therapeutenschule Isolde Richter</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── QUOTE ───────────────────────────────────────── -->
+  <section id="quote">
+    <div class="section-inner reveal">
+      <blockquote>
+        „Gesundheit ist nicht alles, aber ohne Gesundheit ist alles nichts."
+      </blockquote>
+      <cite>Arthur Schopenhauer</cite>
+    </div>
+  </section>
+
+  <!-- ─── FAQ ────────────────────────────────────────── -->
+  <section id="faq">
+    <div class="section-inner">
+      <div class="faq-grid">
+        <div class="faq-sidebar reveal-left">
+          <div class="section-tag">Häufige Fragen</div>
+          <h2 class="section-title">Sie haben <em>Fragen?</em></h2>
+          <p>
+            Hier finden Sie Antworten auf die häufigsten Fragen rund um meine
+            Praxis, Behandlungen und Online-Seminare.
+          </p>
+          <div class="faq-contact-hint">
+            <span style="font-size:1.5rem;">💬</span>
+            <p>Ihre Frage ist nicht dabei? Schreiben Sie mir gerne direkt — ich antworte persönlich.</p>
+          </div>
+        </div>
+
+        <div class="accordion reveal-right">
+
+          <div class="accordion-item open">
+            <button class="accordion-trigger">
+              <span>Wie kann ich einen Termin buchen?</span>
+              <div class="accordion-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </div>
+            </button>
+            <div class="accordion-content" style="max-height:200px;">
+              <p>Bitte rufen Sie mich an oder kontaktieren Sie mich per E-Mail. Wir vereinbaren dann gemeinsam einen Termin nach gegenseitiger Verfügbarkeit. Sie erreichen mich unter 09942 9486842 oder über das Kontaktformular auf dieser Seite.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <span>Was kostet eine Behandlung?</span>
+              <div class="accordion-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </div>
+            </button>
+            <div class="accordion-content">
+              <p>Das Erstgespräch bei körperlichen Beschwerden kostet 80–100 € aufgrund der längeren Dauer und der notwendigen Dokumentation. Folgebehandlungen kosten 30 € für bis zu 30 Minuten, danach je weitere 30 Minuten ebenfalls 30 €. Beim Somatic Experiencing gibt es ein kostenloses 15-minütiges Kennenlerngespräch; vollständige Sitzungen kosten 80 €.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <span>Was muss ich zur Behandlung mitbringen?</span>
+              <div class="accordion-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </div>
+            </button>
+            <div class="accordion-content">
+              <p>Zur manuellen Therapie bringen Sie bitte ein großes Bade- oder Saunatuch mit. Zur Anamnese bringen Sie bitte aktuelle Blutwerte (nicht älter als drei Monate), Ihre Medikamente und Nahrungsergänzungsmittel mit. Planen Sie ausreichend Zeit ein und vermeiden Sie direkte Anschlusstermine.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <span>Wie kann ich einen Kurs buchen?</span>
+              <div class="accordion-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </div>
+            </button>
+            <div class="accordion-content">
+              <p>Die Online-Kurse über die Heilpraktiker- &amp; Therapeutenschule Isolde Richter können direkt über deren Homepage gebucht werden. Die Links auf meiner Seite führen Sie direkt zu den Kursen und zur Anmeldung.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <span>Was ist ein Online-Seminar und wie nehme ich teil?</span>
+              <div class="accordion-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </div>
+            </button>
+            <div class="accordion-content">
+              <p>Die Seminare werden live über das Internet übertragen und bieten interaktive Frage-und-Antwort-Möglichkeiten. Sie melden sich direkt auf der jeweiligen Kursseite an und erhalten eine Bestätigungs-E-Mail mit Ihren Zugangsdaten.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <span>Welche technischen Voraussetzungen brauche ich?</span>
+              <div class="accordion-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </div>
+            </button>
+            <div class="accordion-content">
+              <p>Sie benötigen einen stabilen Internetzugang und einen aktuellen Browser. Google Chrome wird empfohlen. Ein Mikrofon oder eine Webcam sind für stille Teilnahme nicht zwingend erforderlich, für aktive Mitarbeit empfiehlt sich jedoch ein Headset.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <span>Kann ich mobil an einem Webinar teilnehmen?</span>
+              <div class="accordion-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </div>
+            </button>
+            <div class="accordion-content">
+              <p>Ja, die Teilnahme ist über iPhone, iPad und Android-Geräte mit den jeweiligen Plattform-Apps problemlos möglich. Für die beste Erfahrung empfehlen wir jedoch einen Laptop oder Desktop-Computer.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <span>Werden die Kosten von der Krankenkasse erstattet?</span>
+              <div class="accordion-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </div>
+            </button>
+            <div class="accordion-content">
+              <p>Gesetzliche Krankenkassen übernehmen Heilpraktikerleistungen in der Regel nicht. Private Krankenversicherungen und Zusatzversicherungen erstatten die Kosten jedoch häufig ganz oder teilweise. Ich stelle Ihnen eine Rechnung nach dem GebüH (Gebührenverzeichnis für Heilpraktiker) aus.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── KONTAKT ─────────────────────────────────────── -->
+  <section id="schreibensiemir">
+    <div class="section-inner">
+      <div class="kontakt-grid">
+        <div class="kontakt-info reveal-left">
+          <div class="section-tag">Kontakt aufnehmen</div>
+          <h2 class="section-title">Schreiben <em>Sie mir</em></h2>
+          <p>
+            Haben Sie Fragen zu meiner Praxis, einem Behandlungsthema oder
+            den Online-Seminaren? Ich freue mich auf Ihre Nachricht und
+            melde mich so schnell wie möglich persönlich bei Ihnen.
+          </p>
+          <div class="kontakt-items">
+            <div class="kontakt-item">
+              <div class="kontakt-icon">📍</div>
+              <div class="kontakt-item-text">
+                <strong>Praxisadresse</strong>
+                <span>Schwarzholzstr. 15, 94234 Viechtach</span>
+              </div>
+            </div>
+            <div class="kontakt-item">
+              <div class="kontakt-icon">📞</div>
+              <div class="kontakt-item-text">
+                <strong>Telefon</strong>
+                <span><a href="tel:+4999429486842" style="color:var(--text);">09942 9486842</a></span>
+              </div>
+            </div>
+            <div class="kontakt-item">
+              <div class="kontakt-icon">✉️</div>
+              <div class="kontakt-item-text">
+                <strong>E-Mail</strong>
+                <span><a href="mailto:info@meurer-heilpraktikerin.de" style="color:var(--text);">info@meurer-heilpraktikerin.de</a></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="kontakt-form reveal-right">
+          <form onsubmit="return false;">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="vorname">Vorname</label>
+                <input type="text" id="vorname" placeholder="Ihr Vorname">
+              </div>
+              <div class="form-group">
+                <label for="nachname">Nachname</label>
+                <input type="text" id="nachname" placeholder="Ihr Nachname">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">E-Mail</label>
+              <input type="email" id="email" placeholder="ihre@email.de">
+            </div>
+            <div class="form-group">
+              <label for="betreff">Betreff</label>
+              <select id="betreff">
+                <option value="">Bitte wählen …</option>
+                <option>Erstgespräch / Therapie</option>
+                <option>Frage zu Online-Seminaren</option>
+                <option>Allgemeine Anfrage</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="nachricht">Ihre Nachricht</label>
+              <textarea id="nachricht" placeholder="Wie kann ich Ihnen helfen?"></textarea>
+            </div>
+            <button type="submit" class="form-submit">Nachricht senden →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── RECHTLICHER HINWEIS (HWG) ──────────────────── -->
+  <section id="hinweis">
+    <div class="hinweis-inner">
+      <p>
+        <strong>Rechtlicher Hinweis gemäß HWG</strong>
+        Die auf dieser Website beschriebenen Diagnose- und Behandlungsmethoden sind Verfahren der
+        naturheilkundlichen Erfahrungsmedizin, die wissenschaftlich nicht allgemein anerkannt sind.
+        Alle getroffenen Aussagen über Wirkungen und Indikationen beruhen auf den Erkenntnissen
+        und Erfahrungen in der jeweiligen Therapierichtung selbst.
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ──────────────────────────────────────── -->
+  <footer>
+    <div class="footer-main">
+      <div class="footer-brand">
+        <img src="Namenszug_transparent.png" alt="Stephanie Meurer">
+        <p>Heilpraktikerin &amp; Dozentin in Viechtach. Ganzheitliche Naturheilkunde aus Überzeugung — für Ihren Weg zu nachhaltiger Gesundheit.</p>
+      </div>
+      <div>
+        <p class="footer-title">Navigation</p>
+        <ul class="footer-links">
+          <li><a href="#home">Startseite</a></li>
+          <li><a href="#leistungen">Leistungen</a></li>
+          <li><a href="#online-seminare">Online-Seminare</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#schreibensiemir">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-title">Seminare</p>
+        <ul class="footer-links">
+          <li><a href="#online-seminare">Spagyrik &amp; Gemmotherapie</a></li>
+          <li><a href="#online-seminare">Homöopathie Kompakt</a></li>
+          <li><a href="#online-seminare">Phytotherapie</a></li>
+          <li><a href="#online-seminare">Homöopathie Ausbildung</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-title">Kontakt</p>
+        <ul class="footer-links">
+          <li><a href="tel:+4999429486842">09942 9486842</a></li>
+          <li><a href="mailto:info@meurer-heilpraktikerin.de">E-Mail senden</a></li>
+          <li><span>Schwarzholzstr. 15</span></li>
+          <li><span>94234 Viechtach</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Stephanie Meurer – Heilpraktikerin. Alle Rechte vorbehalten.</p>
+      <div class="footer-legal">
+        <a href="/impressum">Impressum</a>
+        <a href="/datenschutz">Datenschutz</a>
+        <a href="/barrierefreiheit">Barrierefreiheit</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── JAVASCRIPT ──────────────────────────────────── -->
+  <script>
+    // ── Scroll Progress ──────────────────────────────────
+    const progressBar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
+      progressBar.style.width = (window.scrollY / maxScroll * 100) + '%';
+    }, { passive: true });
+
+    // ── Navbar scroll ────────────────────────────────────
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ── Mobile menu ──────────────────────────────────────
+    document.getElementById('menuBtn').addEventListener('click',  () => document.getElementById('mobileMenu').classList.add('open'));
+    document.getElementById('menuClose').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+    function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+    // ── Reveal on scroll ─────────────────────────────────
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: .1, rootMargin: '0px 0px -60px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger')
+            .forEach(el => observer.observe(el));
+
+    // ── Counter animation ─────────────────────────────────
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el  = e.target;
+        const end = parseInt(el.dataset.count);
+        let   cur = 0;
+        const step = end / 40;
+        const timer = setInterval(() => {
+          cur += step;
+          if (cur >= end) { el.textContent = end + '+'; clearInterval(timer); }
+          else              el.textContent = Math.floor(cur);
+        }, 40);
+        counterObserver.unobserve(el);
+      });
+    }, { threshold: .5 });
+    document.querySelectorAll('.stat-number[data-count]').forEach(c => counterObserver.observe(c));
+
+    // ── Accordion ────────────────────────────────────────
+    document.querySelectorAll('.accordion-trigger').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item    = btn.closest('.accordion-item');
+        const content = item.querySelector('.accordion-content');
+        const isOpen  = item.classList.contains('open');
+        document.querySelectorAll('.accordion-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.accordion-content').style.maxHeight = '0';
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // ── Floating particles ────────────────────────────────
+    const container = document.getElementById('particles');
+    const leafSVG = `<svg width="20" height="28" viewBox="0 0 20 28" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 26 C10 26 2 18 2 10 C2 5.5 5.5 2 10 2 C14.5 2 18 5.5 18 10 C18 18 10 26 10 26Z"/>
+    </svg>`;
+    for (let i = 0; i < 14; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      const size = 10 + Math.random() * 16;
+      p.style.cssText = `left:${Math.random()*100}%;width:${size}px;height:${size*1.4}px;animation-duration:${8+Math.random()*10}s;animation-delay:${Math.random()*-15}s;`;
+      p.innerHTML = leafSVG;
+      container.appendChild(p);
+    }
+
+    // ── Active nav link ───────────────────────────────────
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks  = document.querySelectorAll('.nav-links a[href^="#"]');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+    }, { passive: true });
+
+    // ── 3D Tilt on cards ─────────────────────────────────
+    document.querySelectorAll('.card-service, .card-seminar').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width  - .5;
+        const y = (e.clientY - rect.top)  / rect.height - .5;
+        card.style.transform = `translateY(-5px) rotateX(${y * -4}deg) rotateY(${x * 4}deg)`;
+        card.style.transition = 'transform .1s';
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+        card.style.transition = 'all .4s cubic-bezier(.25,.46,.45,.94)';
+      });
+    });
+  </script>
+</body>
+</html>
