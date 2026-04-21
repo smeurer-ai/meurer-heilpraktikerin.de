@@ -995,7 +995,7 @@
 
     /* ─── RECHTLICHER HINWEIS ───────────────────────────── */
     #hinweis {
-      padding: 3.5rem 0;
+      padding: 5rem 0;
       background: #f0ede8;
       border-top: 1px solid rgba(74,124,89,.12);
     }
@@ -1432,13 +1432,24 @@
       <div class="leistungen-grid stagger">
         <div class="card-service">
           <div class="service-icon">
-            <!-- Hände halten Herz -->
-            <svg viewBox="0 0 60 60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-              <path d="M30 22 C30 22 36 14 41 18 C44 21 41 26 30 33 C19 26 16 21 19 18 C24 14 30 22 30 22"/>
-              <path d="M14 54 Q9 44 11 34 Q13 27 16 24 Q18 22 20 24 Q21 26 21 30"/>
-              <path d="M46 54 Q51 44 49 34 Q47 27 44 24 Q42 22 40 24 Q39 26 39 30"/>
-              <path d="M21 30 Q24 50 30 53 Q36 50 39 30"/>
-              <path d="M14 54 Q20 57 30 57 Q40 57 46 54"/>
+            <!-- Sonne mit Halbmond und Sternen -->
+            <svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+              <line x1="30" y1="2" x2="30" y2="11"/>
+              <line x1="44.5" y1="5.5" x2="39" y2="13"/>
+              <line x1="54.5" y1="15.5" x2="47" y2="20"/>
+              <line x1="58" y1="30" x2="49" y2="30"/>
+              <line x1="54.5" y1="44.5" x2="47" y2="40"/>
+              <line x1="44.5" y1="54.5" x2="39" y2="47"/>
+              <line x1="30" y1="58" x2="30" y2="49"/>
+              <line x1="15.5" y1="54.5" x2="21" y2="47"/>
+              <line x1="5.5" y1="44.5" x2="13" y2="40"/>
+              <line x1="2" y1="30" x2="11" y2="30"/>
+              <line x1="5.5" y1="15.5" x2="13" y2="20"/>
+              <line x1="15.5" y1="5.5" x2="21" y2="13"/>
+              <circle cx="30" cy="30" r="13"/>
+              <path d="M24 20 A10 10 0 0 0 24 40 A8 8 0 0 1 24 20Z"/>
+              <path d="M38 24 L38.8 26.5 L41.3 27.3 L38.8 28.1 L38 30.6 L37.2 28.1 L34.7 27.3 L37.2 26.5Z" stroke="none" fill="currentColor"/>
+              <path d="M36.5 33.5 L37.1 35.1 L38.7 35.7 L37.1 36.3 L36.5 37.9 L35.9 36.3 L34.3 35.7 L35.9 35.1Z" stroke="none" fill="currentColor"/>
             </svg>
           </div>
           <h3>Klassische Homöopathie</h3>
@@ -1447,13 +1458,20 @@
         <div class="card-service">
           <div class="service-icon">
             <!-- Mörser mit Stößel und Kräutern -->
-            <svg viewBox="0 0 60 60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14 38 Q12 48 18 52 L42 52 Q48 48 46 38 Z"/>
-              <ellipse cx="30" cy="38" rx="16" ry="4"/>
-              <path d="M36 12 Q44 22 42 36"/>
-              <path d="M22 32 Q16 24 20 16 Q20 10 26 10"/>
-              <path d="M26 10 Q32 4 34 10 Q32 18 22 32"/>
-              <path d="M14 52 Q12 56 18 56 L42 56 Q48 56 46 52"/>
+            <svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+              <!-- Schüssel -->
+              <path d="M8 30 Q7 50 30 54 Q53 50 52 30"/>
+              <!-- Schüsselrand (gerade Linie) -->
+              <line x1="8" y1="30" x2="52" y2="30"/>
+              <!-- Sockel -->
+              <path d="M20 54 Q18 58 20 59 L40 59 Q42 58 40 54"/>
+              <!-- Linkes Kräuterblatt -->
+              <path d="M15 29 Q6 16 17 7 Q22 16 18 27"/>
+              <!-- Mittleres Kräuterblatt (größer) -->
+              <path d="M27 29 Q25 11 30 4 Q35 11 33 29"/>
+              <!-- Stößel (Kopf + Stiel) -->
+              <ellipse cx="47" cy="11" rx="4.5" ry="7" transform="rotate(25 47 11)"/>
+              <line x1="43.5" y1="17" x2="40" y2="29"/>
             </svg>
           </div>
           <h3>Spagyrik &amp; Gemmotherapie</h3>
@@ -1462,10 +1480,16 @@
         <div class="card-service">
           <div class="service-icon">
             <!-- Darm mit Haken/Checkmark -->
-            <svg viewBox="0 0 60 60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 12 Q7 12 7 20 Q7 30 14 30 Q22 30 22 22 Q22 14 30 14 Q38 14 38 22 Q38 32 30 34 Q22 36 20 44 Q18 50 22 52 Q26 54 30 52 Q34 50 34 44 Q34 36 42 34 Q50 32 50 24 Q50 16 44 12 Q38 8 30 8 Q20 8 20 16 Q20 22 14 22 Q8 22 8 16"/>
-              <circle cx="46" cy="13" r="8" fill="none"/>
-              <polyline points="42 13 45 16 51 9"/>
+            <svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+              <!-- Darm-Silhouette (Dickdarm-Form, vereinfacht) -->
+              <path d="M16 14 Q10 14 10 20 Q10 28 16 28 Q24 28 24 20 Q24 12 32 12 Q40 12 40 20 Q40 30 32 32 Q24 34 22 42 Q20 49 24 52 Q28 55 32 52 Q36 49 36 42 Q36 34 44 32 Q50 30 50 22 Q50 14 44 10"/>
+              <!-- Bakterien (kleine Kapseln) -->
+              <ellipse cx="20" cy="22" rx="2.5" ry="1.5"/>
+              <ellipse cx="30" cy="24" rx="2.5" ry="1.5" transform="rotate(45 30 24)"/>
+              <ellipse cx="36" cy="22" rx="2.5" ry="1.5" transform="rotate(-30 36 22)"/>
+              <!-- Checkmark-Kreis oben rechts -->
+              <circle cx="48" cy="10" r="8"/>
+              <polyline points="43.5 10 47 13.5 53.5 5.5"/>
             </svg>
           </div>
           <h3>Darmtherapie</h3>
@@ -1473,12 +1497,18 @@
         </div>
         <div class="card-service">
           <div class="service-icon">
-            <!-- Weibliche Figur (elegante Linie) -->
-            <svg viewBox="0 0 60 60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="33" cy="8" r="4" fill="none"/>
-              <circle cx="38" cy="12" r="2" fill="none"/>
-              <path d="M33 12 Q28 18 24 26 Q20 36 18 46 Q17 52 20 55 Q25 58 30 54 Q34 50 36 42 Q38 36 42 32 Q46 28 44 22 Q42 16 38 14"/>
-              <path d="M36 12 Q40 8 41 12"/>
+            <!-- Weibliche Figur (fließende Linie) -->
+            <svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+              <!-- Kopf-Kreis -->
+              <circle cx="26" cy="9" r="5"/>
+              <!-- Haarknoten-Schlaufe über dem Kopf -->
+              <path d="M23 5 Q21 -1 26 0 Q31 0 29 4"/>
+              <!-- Zweites kleines Element (rechts vom Kopf) -->
+              <circle cx="34" cy="14" r="2.5"/>
+              <!-- Äußere Körperlinie (Rücken / linke Seite) -->
+              <path d="M22 14 Q13 22 15 34 Q17 44 26 48 Q30 50 30 56"/>
+              <!-- Innere Körperlinie (Vorderseite / rechte Seite) -->
+              <path d="M30 14 Q38 20 35 30 Q32 38 22 42 Q14 46 16 56"/>
             </svg>
           </div>
           <h3>Frauenheilkunde</h3>
@@ -1486,13 +1516,18 @@
         </div>
         <div class="card-service">
           <div class="service-icon">
-            <!-- Hände (manuelle Therapie) -->
-            <svg viewBox="0 0 60 60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10 34 Q8 28 12 24 L16 14 Q17 12 19 13 L20 16 L20 22"/>
-              <path d="M20 22 L22 16 Q23 14 25 15 L26 18 L26 24"/>
-              <path d="M26 24 L27 18 Q28 16 30 17 L31 20 L31 26"/>
-              <path d="M31 26 L32 21 Q33 19 35 20 L36 24 L36 34"/>
-              <path d="M10 34 Q10 42 14 46 Q20 52 28 52 L34 52 Q42 52 44 44 L44 34 Q44 30 40 30 L36 34"/>
+            <!-- Hände halten Herz -->
+            <svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+              <!-- Herz oben -->
+              <path d="M30 36 C30 36 10 24 10 14 A10 10 0 0 1 30 14 A10 10 0 0 1 50 14 C50 24 30 36 30 36Z"/>
+              <!-- Linke Hand: von unten-links, Handfläche nach oben-rechts -->
+              <path d="M6 56 Q4 46 8 38 Q12 32 18 34 Q20 35 20 38"/>
+              <path d="M18 34 Q20 30 24 32 Q26 34 24 38"/>
+              <path d="M20 38 Q22 52 30 54"/>
+              <!-- Rechte Hand: Spiegelbild -->
+              <path d="M54 56 Q56 46 52 38 Q48 32 42 34 Q40 35 40 38"/>
+              <path d="M42 34 Q40 30 36 32 Q34 34 36 38"/>
+              <path d="M40 38 Q38 52 30 54"/>
             </svg>
           </div>
           <h3>Manuelle Therapien</h3>
@@ -1501,15 +1536,27 @@
         <div class="card-service">
           <div class="service-icon">
             <!-- Figur mit Schwingungswellen (Somatic Experiencing) -->
-            <svg viewBox="0 0 60 60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="30" cy="10" r="5" fill="none"/>
-              <path d="M24 16 Q22 22 22 30 Q22 36 24 42 L26 52 Q27 56 30 56 Q33 56 34 52 L36 42 Q38 36 38 30 Q38 22 36 16"/>
-              <path d="M22 30 L14 26 Q10 24 8 26 Q6 28 8 30"/>
-              <path d="M22 36 L15 40 Q11 42 10 46 Q9 48 12 48"/>
-              <path d="M38 30 L46 26 Q50 24 52 26 Q54 28 52 30"/>
-              <path d="M38 36 L45 40 Q49 42 50 46 Q51 48 48 48"/>
-              <path d="M14 52 L16 46 Q18 42 22 42"/>
-              <path d="M46 52 L44 46 Q42 42 38 42"/>
+            <svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+              <!-- Kopf -->
+              <circle cx="30" cy="8" r="5"/>
+              <!-- Körper (gerundetes Rechteck, Kontur) -->
+              <path d="M22 14 Q20 14 20 18 L20 36 Q20 40 24 42 L36 42 Q40 40 40 36 L40 18 Q40 14 38 14 Z"/>
+              <!-- Arme (leicht nach unten geneigt) -->
+              <line x1="8" y1="26" x2="20" y2="22"/>
+              <line x1="40" y1="22" x2="52" y2="26"/>
+              <!-- Beine -->
+              <line x1="25" y1="42" x2="23" y2="56"/>
+              <line x1="35" y1="42" x2="37" y2="56"/>
+              <!-- Schwingungslinien links (Schulter) -->
+              <path d="M5 21 Q7 19 9 21 Q11 23 13 21"/>
+              <path d="M4 26 Q6 24 8 26 Q10 28 12 26"/>
+              <!-- Schwingungslinien rechts (Schulter) -->
+              <path d="M47 21 Q49 19 51 21 Q53 23 55 21"/>
+              <path d="M48 26 Q50 24 52 26 Q54 28 56 26"/>
+              <!-- Schwingungslinien unten links (Füße) -->
+              <path d="M15 54 Q17 52 19 54 Q21 56 23 54"/>
+              <!-- Schwingungslinien unten rechts (Füße) -->
+              <path d="M37 54 Q39 52 41 54 Q43 56 45 54"/>
             </svg>
           </div>
           <h3>Somatic Experiencing</h3>
