@@ -218,23 +218,6 @@
       0%   { transform: rotate(-3deg) scale(1); }
       100% { transform: rotate(3deg) scale(1.03); }
     }
-    .hero-botanical-left {
-      position: absolute;
-      left: -40px;
-      bottom: 0;
-      width: 38%;
-      max-width: 420px;
-      z-index: 2;
-      opacity: .55;
-      mix-blend-mode: normal;
-      animation: sway 10s ease-in-out infinite alternate-reverse;
-      pointer-events: none;
-    }
-    .hero-botanical-left img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
     .hero-content {
       position: relative;
       z-index: 3;
@@ -590,12 +573,21 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 1.5rem;
-      font-size: 1.5rem;
       transition: all .3s var(--ease);
+    }
+    .service-icon svg {
+      width: 30px;
+      height: 30px;
+      stroke: var(--primary);
+      fill: none;
+      transition: stroke .3s var(--ease);
     }
     .card-service:hover .service-icon {
       background: var(--primary);
       transform: rotate(-5deg) scale(1.05);
+    }
+    .card-service:hover .service-icon svg {
+      stroke: #ffffff;
     }
     .card-service h3 {
       font-family: var(--font-h);
@@ -874,7 +866,7 @@
 
     /* ─── QUOTE SECTION ─────────────────────────────────── */
     #quote {
-      padding: 4rem 0;
+      padding: 5rem 0;
       background: var(--primary);
       text-align: center;
       position: relative;
@@ -1293,10 +1285,6 @@
     <div class="hero-bg"></div>
     <div class="hero-mesh"></div>
 
-    <div class="hero-botanical-left">
-      <img src="hero_zweig.png" alt="Zweig mit Knospen">
-    </div>
-
     <div class="hero-botanical">
       <!-- Gänseblümchen -->
       <svg viewBox="0 0 600 720" xmlns="http://www.w3.org/2000/svg" fill="white">
@@ -1443,32 +1431,87 @@
       </div>
       <div class="leistungen-grid stagger">
         <div class="card-service">
-          <div class="service-icon">🌿</div>
+          <div class="service-icon">
+            <!-- Hände halten Herz -->
+            <svg viewBox="0 0 60 60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+              <path d="M30 22 C30 22 36 14 41 18 C44 21 41 26 30 33 C19 26 16 21 19 18 C24 14 30 22 30 22"/>
+              <path d="M14 54 Q9 44 11 34 Q13 27 16 24 Q18 22 20 24 Q21 26 21 30"/>
+              <path d="M46 54 Q51 44 49 34 Q47 27 44 24 Q42 22 40 24 Q39 26 39 30"/>
+              <path d="M21 30 Q24 50 30 53 Q36 50 39 30"/>
+              <path d="M14 54 Q20 57 30 57 Q40 57 46 54"/>
+            </svg>
+          </div>
           <h3>Klassische Homöopathie</h3>
           <p>Individuelle Mittelauswahl nach Hahnemann. Die Therapie behandelt nicht Symptome, sondern den Menschen in seiner Ganzheit.</p>
         </div>
         <div class="card-service">
-          <div class="service-icon">🌱</div>
+          <div class="service-icon">
+            <!-- Mörser mit Stößel und Kräutern -->
+            <svg viewBox="0 0 60 60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 38 Q12 48 18 52 L42 52 Q48 48 46 38 Z"/>
+              <ellipse cx="30" cy="38" rx="16" ry="4"/>
+              <path d="M36 12 Q44 22 42 36"/>
+              <path d="M22 32 Q16 24 20 16 Q20 10 26 10"/>
+              <path d="M26 10 Q32 4 34 10 Q32 18 22 32"/>
+              <path d="M14 52 Q12 56 18 56 L42 56 Q48 56 46 52"/>
+            </svg>
+          </div>
           <h3>Spagyrik &amp; Gemmotherapie</h3>
           <p>Europäische Pflanzenheilkunde auf höchstem Niveau. Traditionelle und moderne Phytotherapie für Körper und Psyche.</p>
         </div>
         <div class="card-service">
-          <div class="service-icon">🫧</div>
+          <div class="service-icon">
+            <!-- Darm mit Haken/Checkmark -->
+            <svg viewBox="0 0 60 60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 12 Q7 12 7 20 Q7 30 14 30 Q22 30 22 22 Q22 14 30 14 Q38 14 38 22 Q38 32 30 34 Q22 36 20 44 Q18 50 22 52 Q26 54 30 52 Q34 50 34 44 Q34 36 42 34 Q50 32 50 24 Q50 16 44 12 Q38 8 30 8 Q20 8 20 16 Q20 22 14 22 Q8 22 8 16"/>
+              <circle cx="46" cy="13" r="8" fill="none"/>
+              <polyline points="42 13 45 16 51 9"/>
+            </svg>
+          </div>
           <h3>Darmtherapie</h3>
           <p>Gesunder Darm, gesunder Mensch. Aufbau der gesunden Darmflora als Fundament für Immunsystem und Wohlbefinden.</p>
         </div>
         <div class="card-service">
-          <div class="service-icon">🌸</div>
+          <div class="service-icon">
+            <!-- Weibliche Figur (elegante Linie) -->
+            <svg viewBox="0 0 60 60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="33" cy="8" r="4" fill="none"/>
+              <circle cx="38" cy="12" r="2" fill="none"/>
+              <path d="M33 12 Q28 18 24 26 Q20 36 18 46 Q17 52 20 55 Q25 58 30 54 Q34 50 36 42 Q38 36 42 32 Q46 28 44 22 Q42 16 38 14"/>
+              <path d="M36 12 Q40 8 41 12"/>
+            </svg>
+          </div>
           <h3>Frauenheilkunde</h3>
           <p>Naturheilkundliche Unterstützung in allen Lebensphasen der Frau — von Zyklus bis Wechseljahre.</p>
         </div>
         <div class="card-service">
-          <div class="service-icon">🤲</div>
+          <div class="service-icon">
+            <!-- Hände (manuelle Therapie) -->
+            <svg viewBox="0 0 60 60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 34 Q8 28 12 24 L16 14 Q17 12 19 13 L20 16 L20 22"/>
+              <path d="M20 22 L22 16 Q23 14 25 15 L26 18 L26 24"/>
+              <path d="M26 24 L27 18 Q28 16 30 17 L31 20 L31 26"/>
+              <path d="M31 26 L32 21 Q33 19 35 20 L36 24 L36 34"/>
+              <path d="M10 34 Q10 42 14 46 Q20 52 28 52 L34 52 Q42 52 44 44 L44 34 Q44 30 40 30 L36 34"/>
+            </svg>
+          </div>
           <h3>Manuelle Therapien</h3>
           <p>Behandlung des Bewegungsapparates mit sanften manuellen Techniken für Haltung, Schmerz und Mobilität.</p>
         </div>
         <div class="card-service">
-          <div class="service-icon">💛</div>
+          <div class="service-icon">
+            <!-- Figur mit Schwingungswellen (Somatic Experiencing) -->
+            <svg viewBox="0 0 60 60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="30" cy="10" r="5" fill="none"/>
+              <path d="M24 16 Q22 22 22 30 Q22 36 24 42 L26 52 Q27 56 30 56 Q33 56 34 52 L36 42 Q38 36 38 30 Q38 22 36 16"/>
+              <path d="M22 30 L14 26 Q10 24 8 26 Q6 28 8 30"/>
+              <path d="M22 36 L15 40 Q11 42 10 46 Q9 48 12 48"/>
+              <path d="M38 30 L46 26 Q50 24 52 26 Q54 28 52 30"/>
+              <path d="M38 36 L45 40 Q49 42 50 46 Q51 48 48 48"/>
+              <path d="M14 52 L16 46 Q18 42 22 42"/>
+              <path d="M46 52 L44 46 Q42 42 38 42"/>
+            </svg>
+          </div>
           <h3>Somatic Experiencing</h3>
           <p>Körperorientierte Traumatherapie nach Peter Levine. Sanfte Integration belastender Erlebnisse auf somatischer Ebene.</p>
         </div>
@@ -1506,7 +1549,7 @@
         <!-- Kurs 1: Spagyrik & Gemmotherapie -->
         <div class="card-seminar">
           <div class="seminar-header-strip">
-            <div class="seminar-category cat-phyto">🌿 Phytotherapie</div>
+            <div class="seminar-category cat-phyto">🌿 Pflanzenheilkunde</div>
             <h3>Pflanzenheilkunde –<br><em>Spagyrik &amp; Gemmotherapie</em></h3>
             <p class="seminar-tagline">Traditionelle und moderne Pflanzenheilkunde für den ganzen Organismus und die Psyche.</p>
           </div>
@@ -1535,8 +1578,8 @@
               <span class="price-per">pro Block</span>
             </div>
             <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
-              <a href="https://www.isolde-richter.de" target="_blank" class="btn-seminar btn-seminar-ghost">Details →</a>
-              <a href="https://www.isolde-richter.de" target="_blank" class="btn-seminar btn-seminar-primary">Jetzt anmelden</a>
+              <a href="https://www.isolde-richter.de/ausbildung/phytotherapie-pflanzenheilkunde" target="_blank" class="btn-seminar btn-seminar-ghost">Details →</a>
+              <a href="https://www.elearning-richter.de/Anmeldung/kursanmeldung.php?action=formular_anzeigen&amp;block=4197" target="_blank" class="btn-seminar btn-seminar-primary">Jetzt anmelden</a>
             </div>
           </div>
         </div>
@@ -1568,13 +1611,12 @@
           </div>
           <div class="seminar-footer">
             <div class="seminar-price">
-              <span class="price-label">ab</span>
-              <span class="price-amount"><sup>€</sup>185</span>
+              <span class="price-amount"><sup>€</sup>290</span>
               <span class="price-per">pro Block</span>
             </div>
             <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
-              <a href="https://www.isolde-richter.de" target="_blank" class="btn-seminar btn-seminar-ghost">Details →</a>
-              <a href="https://www.isolde-richter.de" target="_blank" class="btn-seminar btn-seminar-primary">Jetzt anmelden</a>
+              <a href="https://www.isolde-richter.de/ausbildung/homoeopathie-kompakt" target="_blank" class="btn-seminar btn-seminar-ghost">Details →</a>
+              <a href="https://www.elearning-richter.de/Anmeldung/kursanmeldung.php?action=formular_anzeigen&amp;block=4197" target="_blank" class="btn-seminar btn-seminar-primary">Jetzt anmelden</a>
             </div>
           </div>
         </div>
@@ -1607,12 +1649,12 @@
           <div class="seminar-footer">
             <div class="seminar-price">
               <span class="price-label">ab</span>
-              <span class="price-amount"><sup>€</sup>190</span>
+              <span class="price-amount"><sup>€</sup>175</span>
               <span class="price-per">pro Block</span>
             </div>
             <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
-              <a href="https://www.isolde-richter.de" target="_blank" class="btn-seminar btn-seminar-ghost">Details →</a>
-              <a href="https://www.isolde-richter.de" target="_blank" class="btn-seminar btn-seminar-primary">Jetzt anmelden</a>
+              <a href="https://www.isolde-richter.de/ausbildung/phytotherapie-pflanzenheilkunde" target="_blank" class="btn-seminar btn-seminar-ghost">Details →</a>
+              <a href="https://www.elearning-richter.de/Anmeldung/kursanmeldung.php?action=formular_anzeigen&amp;block=4197" target="_blank" class="btn-seminar btn-seminar-primary">Jetzt anmelden</a>
             </div>
           </div>
         </div>
@@ -1645,12 +1687,12 @@
           <div class="seminar-footer">
             <div class="seminar-price">
               <span class="price-label">ab</span>
-              <span class="price-amount"><sup>€</sup>220</span>
+              <span class="price-amount"><sup>€</sup>320</span>
               <span class="price-per">pro Block</span>
             </div>
             <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
-              <a href="https://www.isolde-richter.de" target="_blank" class="btn-seminar btn-seminar-ghost">Details →</a>
-              <a href="https://www.isolde-richter.de" target="_blank" class="btn-seminar btn-seminar-primary">Jetzt anmelden</a>
+              <a href="https://www.isolde-richter.de/ausbildung/homoeopathie-ausbildung" target="_blank" class="btn-seminar btn-seminar-ghost">Details →</a>
+              <a href="https://www.elearning-richter.de/Anmeldung/kursanmeldung.php?action=formular_anzeigen&amp;block=4197" target="_blank" class="btn-seminar btn-seminar-primary">Jetzt anmelden</a>
             </div>
           </div>
         </div>
