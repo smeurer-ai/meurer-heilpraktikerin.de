@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AGB | Stephanie Meurer – Heilpraktikerin</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <meta name="robots" content="noindex, nofollow">
+
+  <style>
+    :root {
+      --primary:   #4a7c59;
+      --primary-d: #3a6347;
+      --primary-l: #e8f0eb;
+      --bg:        #f5f0eb;
+      --text:      #44546a;
+      --dark:      #1a2d20;
+      --light:     #faf8f5;
+      --gold:      #b8965a;
+      --white:     #ffffff;
+      --font-h:    'Cormorant Garamond', Georgia, serif;
+      --font-b:    'Raleway', system-ui, sans-serif;
+      --ease:      cubic-bezier(.25,.46,.45,.94);
+      --r:         16px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-b);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    a { text-decoration: none; color: var(--primary); }
+    a:hover { text-decoration: underline; }
+
+    /* HEADER */
+    .page-header {
+      background: var(--dark);
+      padding: 2rem 2.5rem;
+    }
+    .page-header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .page-header img { height: 44px; filter: brightness(0) invert(1); opacity: .85; }
+    .header-back {
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.6);
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      transition: color .3s;
+      text-decoration: none;
+    }
+    .header-back:hover { color: #fff; text-decoration: none; }
+    .header-back svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2; fill: none; }
+
+    /* HERO STRIP */
+    .page-hero {
+      background: linear-gradient(135deg, #0f1f14 0%, #1a3d28 60%, #2a5c3a 100%);
+      padding: 4rem 2.5rem 3.5rem;
+      text-align: center;
+    }
+    .page-hero h1 {
+      font-family: var(--font-h);
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: .75rem;
+    }
+    .page-hero p {
+      font-size: .85rem;
+      color: rgba(255,255,255,.45);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    /* INHALTSVERZEICHNIS */
+    .toc-wrap {
+      max-width: 860px;
+      margin: 3rem auto 0;
+      padding: 0 2.5rem;
+    }
+    .toc {
+      background: var(--white);
+      border-radius: var(--r);
+      padding: 2rem 2.5rem;
+      border: 1px solid rgba(74,124,89,.12);
+    }
+    .toc h2 {
+      font-family: var(--font-b);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .toc ol {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .4rem .75rem;
+    }
+    .toc li { counter-increment: toc-counter; }
+    .toc a {
+      font-size: .88rem;
+      color: var(--text);
+      display: flex;
+      align-items: baseline;
+      gap: .5rem;
+      transition: color .25s;
+      text-decoration: none;
+    }
+    .toc a:hover { color: var(--primary); text-decoration: none; }
+    .toc a::before {
+      content: attr(data-num);
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--primary);
+      min-width: 1.4rem;
+    }
+
+    /* CONTENT */
+    .content-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 2.5rem 6rem;
+    }
+
+    .agb-section {
+      background: var(--white);
+      border-radius: var(--r);
+      padding: 2.5rem;
+      margin-bottom: 1.25rem;
+      border: 1px solid rgba(74,124,89,.10);
+      scroll-margin-top: 2rem;
+    }
+
+    .agb-section h2 {
+      font-family: var(--font-h);
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+      padding-bottom: .75rem;
+      border-bottom: 1.5px solid var(--primary-l);
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+    .agb-section h2 .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--white);
+      font-family: var(--font-b);
+      font-size: .8rem;
+      font-weight: 700;
+    }
+
+    .agb-item {
+      display: flex;
+      gap: 1rem;
+      padding: .85rem 0;
+      border-bottom: 1px solid rgba(74,124,89,.08);
+      font-size: .9rem;
+      line-height: 1.8;
+      color: var(--text);
+    }
+    .agb-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .agb-item .item-num {
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--primary);
+      min-width: 2.8rem;
+      padding-top: .15rem;
+      letter-spacing: .04em;
+    }
+    .agb-item .item-text { flex: 1; }
+
+    /* Übersicht-Tabelle */
+    .overview-grid {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+    }
+    .overview-row {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+      padding: .7rem 1rem;
+      background: var(--bg);
+      border-radius: 8px;
+      font-size: .88rem;
+    }
+    .overview-row::before {
+      content: '';
+      width: 6px; height: 6px;
+      min-width: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: .55rem;
+    }
+    .overview-row span { color: var(--text); line-height: 1.65; }
+    .overview-row strong { color: var(--dark); }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark);
+      padding: 2.5rem;
+      text-align: center;
+    }
+    footer img { height: 36px; margin: 0 auto 1.25rem; filter: brightness(0) invert(1); opacity: .5; }
+    footer p { font-size: .8rem; color: rgba(255,255,255,.3); line-height: 1.8; }
+    footer a { color: rgba(255,255,255,.45); }
+    footer a:hover { color: rgba(255,255,255,.8); text-decoration: none; }
+    .footer-links { display: flex; justify-content: center; gap: 2rem; margin-top: 1rem; }
+
+    @media (max-width: 640px) {
+      .toc-wrap    { padding: 0 1.25rem; }
+      .content-wrap{ padding: 1.5rem 1.25rem 4rem; }
+      .agb-section { padding: 1.75rem 1.25rem; }
+      .toc ol      { grid-template-columns: 1fr; }
+      .page-hero   { padding: 3rem 1.5rem 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <img src="Namenszug_transparent.png" alt="Stephanie Meurer">
+      <a href="index.html" class="header-back">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        Zur Website
+      </a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <h1>Allgemeine Geschäftsbedingungen</h1>
+    <p>Stephanie Meurer · Heilpraktikerin &amp; Dozentin</p>
+  </div>
+
+  <!-- INHALTSVERZEICHNIS -->
+  <div class="toc-wrap">
+    <div class="toc">
+      <h2>Inhaltsverzeichnis</h2>
+      <ol>
+        <li><a href="#s1" data-num="§ 1">Geltungsbereich</a></li>
+        <li><a href="#s2" data-num="§ 2">Leistungen und Vertragsgegenstand</a></li>
+        <li><a href="#s3" data-num="§ 3">Vertragsabschluss</a></li>
+        <li><a href="#s4" data-num="§ 4">Preise und Zahlungsbedingungen</a></li>
+        <li><a href="#s5" data-num="§ 5">Leistungszeit und Erbringung</a></li>
+        <li><a href="#s6" data-num="§ 6">Widerrufsrecht und Stornierungen</a></li>
+        <li><a href="#s7" data-num="§ 7">Gewährleistung und Haftung</a></li>
+        <li><a href="#s8" data-num="§ 8">Datenschutz und Verschwiegenheit</a></li>
+        <li><a href="#s9" data-num="§ 9">Rechte an digitalen Inhalten</a></li>
+        <li><a href="#s10" data-num="§ 10">Gerichtsstand und anwendbares Recht</a></li>
+        <li><a href="#s11" data-num="§ 11">Schlussbestimmungen</a></li>
+        <li><a href="#uebersicht" data-num="—">Übersicht der Angaben</a></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content-wrap">
+
+    <!-- § 1 -->
+    <div class="agb-section" id="s1">
+      <h2><span class="num">1</span>Geltungsbereich</h2>
+      <div class="agb-item">
+        <span class="item-num">1.1</span>
+        <span class="item-text">Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge zwischen <strong>Stephanie Meurer, 94262 Kollnburg (Deutschland)</strong>, Einzelunternehmerin und Inhaberin einer Heilpraktiker-Praxis mit ergänzendem Kursangebot (nachfolgend „Heilpraktikerin" oder „wir/uns"), und ihren Kundinnen und Kunden (nachfolgend „Kunde"), soweit nicht etwas anderes ausdrücklich vereinbart wurde.</span>
+      </div>
+      <div class="agb-item">
+        <span class="item-num">1.2</span>
+        <span class="item-text">Das Angebot richtet sich sowohl an Verbraucher (§ 13 BGB) als auch an Unternehmer (§ 14 BGB). Für Unternehmer gelten diese AGB auch für zukünftige Geschäftsbeziehungen, ohne dass erneut darauf hingewiesen wird.</span>
+      </div>
+      <div class="agb-item">
+        <span class="item-num">1.3</span>
+        <span class="item-text">Abweichende, entgegenstehende oder ergänzende Allgemeine Geschäftsbedingungen des Kunden werden nur Vertragsbestandteil, wenn wir ihrer Geltung ausdrücklich schriftlich zugestimmt haben.</span>
+      </div>
+    </div>
+
+    <!-- § 2 -->
+    <div class="agb-section" id="s2">
+      <h2><span class="num">2</span>Leistungen und Vertragsgegenstand</h2>
+      <div class="agb-item">
+        <span class="item-num">2.1</span>
+        <span class="item-text">Wir bieten im Bereich Gesundheit und Fortbildung naturheilkundliche Behandlungen (Heilpraktikerleistungen) und digitale Produkte in Form von Online-Kursen an. Eine Erfolgs- oder Heilungszusage ist ausdrücklich ausgeschlossen; die Behandlungen erfolgen nach bestem Wissen und Gewissen entsprechend dem jeweiligen Berufsstand.</span>
+      </div>
+      <div class="agb-item">
+        <span class="item-num">2.2</span>
+        <span class="item-text">Die Online-Kurse werden als digitale Inhalte über das Internet bereitgestellt und können Schulungsvideos, Skripte, PDFs oder Live-Webinare umfassen. Der Kunde erhält ein einfaches, nicht übertragbares Nutzungsrecht zur persönlichen Nutzung. Eine Weitergabe an Dritte oder öffentliche Vorführung ist nicht gestattet.</span>
+      </div>
+      <div class="agb-item">
+        <span class="item-num">2.3</span>
+        <span class="item-text">Physische Waren werden nicht geliefert. Sämtliche Leistungen werden entweder vor Ort in der Praxis oder online erbracht.</span>
+      </div>
+    </div>
+
+    <!-- § 3 -->
+    <div class="agb-section" id="s3">
+      <h2><span class="num">3</span>Vertragsabschluss</h2>
+      <div class="agb-item">
+        <span class="item-num">3.1</span>
+        <span class="item-text">Behandlungsverträge kommen zustande, wenn der Kunde einen Termin vereinbart (mündlich, telefonisch, per E-Mail oder über die Website) und die Heilpraktikerin die Annahme bestätigt. Bei Online-Kursen erfolgt der Vertragsschluss über unsere Website durch Bestellung und Bestätigung per E-Mail.</span>
+      </div>
+      <div class="agb-item">
+        <span class="item-num">3.2</span>
+        <span class="item-text">Das Mindestalter für Vertragsabschlüsse beträgt 18 Jahre oder die Zustimmung eines gesetzlichen Vertreters.</span>
+      </div>
+      <div class="agb-item">
+        <span class="item-num">3.3</span>
+        <span class="item-text">Der Kunde versichert, alle zur ordnungsgemäßen Leistungserbringung erforderlichen Angaben wahrheitsgemäß und vollständig zu machen.</span>
+      </div>
+    </div>
+
+    <!-- § 4 -->
+    <div class="agb-section" id="s4">
+      <h2><span class="num">4</span>Preise und Zahlungsbedingungen</h2>
+      <div class="agb-item">
+        <span class="item-num">4.1</span>
+        <span class="item-text">Alle Preise verstehen sich in Euro (€) und enthalten die jeweils gesetzlich gültige Umsatzsteuer.</span>
+      </div>
+      <div class="agb-item">
+        <span class="item-num">4.2</span>
+        <span class="item-text">Zahlungen sind sofort ohne Abzug fällig. Folgende Zahlungsarten werden akzeptiert: Barzahlung, PayPal und Kreditkarte. Bei digitalen Produkten erfolgt die Zahlung über die angebotenen Online-Zahlungsdienste.</span>
+      </div>
+      <div class="agb-item">
+        <span class="item-num">4.3</span>
+        <span class="item-text">Bei Zahlungsverzug behalten wir uns vor, gesetzliche Verzugszinsen zu berechnen. Es gelten die §§ 286 ff. BGB.</span>
+      </div>
+    </div>
+
+    <!-- § 5 -->
+    <div class="agb-section" id="s5">
+      <h2><span class="num">5</span>Leistungszeit und Erbringung</h2>
+      <div class="agb-item">
+        <span class="item-num">5.1</span>
+        <span class="item-text">Behandlungen werden zum vereinbarten Termin in unserer Praxis durchgeführt. Online-Kurse werden unmittelbar nach Zahlungseingang oder zum im Kurs ausgeschriebenen Startdatum bereitgestellt.</span>
+      </div>
+      <div class="agb-item">
+        <span class="item-num">5.2</span>
+        <span class="item-text">Da keine physischen Produkte versandt werden, entfallen Lieferzeiten. Bei digitalen Inhalten erfolgt die Bereitstellung innerhalb der EU. Der Kunde trägt dafür Sorge, dass die erforderlichen technischen Voraussetzungen bestehen.</span>
+      </div>
+      <div class="agb-item">
+        <span class="item-num">5.3</span>
+        <span class="item-text">Kommt es aus Gründen, die wir nicht zu vertreten haben (z. B. höhere Gewalt, technische Störungen), zu Verzögerungen, werden wir den Kunden unverzüglich informieren und einen neuen Termin anbieten.</span>
+      </div>
+    </div>
+
+    <!-- § 6 -->
+    <div class="agb-section" id="s6">
+      <h2><span class="num">6</span>Widerrufsrecht und Stornierungen</h2>
+      <div class="agb-item">
+        <span class="item-num">6.1</span>
+        <span class="item-text"><strong>Widerrufsrecht für Verbraucher:</strong> Bei Online-Kursen, die als Fernabsatzvertrag im Sinne von § 312c BGB abgeschlossen werden, steht Verbrauchern ein gesetzliches Widerrufsrecht von 14 Tagen zu. Der Widerruf kann ohne Angabe von Gründen mittels eindeutiger Erklärung erfolgen. Die Frist beginnt mit Vertragsschluss.</span>
+      </div>
+      <div class="agb-item">
+        <span class="item-num">6.2</span>
+        <span class="item-text"><strong>Ausschluss des Widerrufs:</strong> Das Widerrufsrecht erlischt, wenn der Kunde ausdrücklich zugestimmt hat, dass die Ausführung des Vertrags vor Ablauf der Widerrufsfrist beginnt, und er seine Kenntnis davon bestätigt hat, dass er sein Widerrufsrecht mit Beginn der Ausführung verliert (§ 356 Abs. 5 BGB). Dies gilt insbesondere bei Downloads oder Live-Webinaren, sobald die Bereitstellung gestartet ist.</span>
+      </div>
+      <div class="agb-item">
+        <span class="item-num">6.3</span>
+        <span class="item-text">Bei Heilpraktiker-Behandlungen handelt es sich um Dienstleistungen aus dem Bereich der Gesundheitsversorgung, die an einem spezifischen Termin erbracht werden. Gemäß § 312g Abs. 2 Nr. 9 BGB besteht hierfür kein Widerrufsrecht. Termine können jedoch bis 24 Stunden vorher kostenfrei storniert werden; bei späterer Absage behalten wir uns vor, ein Ausfallhonorar in Höhe der vereinbarten Vergütung zu berechnen.</span>
+      </div>
+      <div class="agb-item">
+        <span class="item-num">6.4</span>
+        <span class="item-text">Unternehmern (B2B-Kunden) wird kein Widerrufsrecht eingeräumt. Stornierungen sind nur nach individueller Vereinbarung möglich.</span>
+      </div>
+    </div>
+
+    <!-- § 7 -->
+    <div class="agb-section" id="s7">
+      <h2><span class="num">7</span>Gewährleistung und Haftung</h2>
+      <div class="agb-item">
+        <span class="item-num">7.1</span>
+        <span class="item-text">Für Mängel an digitalen Produkten gelten die gesetzlichen Gewährleistungsrechte. Die Gewährleistungsfrist beträgt für Verbraucher zwei Jahre ab Bereitstellung, für Unternehmer ein Jahr.</span>
+      </div>
+      <div class="agb-item">
+        <span class="item-num">7.2</span>
+        <span class="item-text">Bei Dienstleistungen (Behandlungen) schulden wir eine fachgerechte Leistungserbringung, jedoch keinen bestimmten Erfolg. Mängelansprüche verjähren nach den gesetzlichen Vorschriften (§ 634a BGB). Der Kunde hat uns etwaige Beanstandungen unverzüglich mitzuteilen.</span>
+      </div>
+      <div class="agb-item">
+        <span class="item-num">7.3</span>
+        <span class="item-text">Ansprüche auf Schadensersatz sind ausgeschlossen, sofern nicht vorsätzliches oder grob fahrlässiges Handeln oder die Verletzung wesentlicher Vertragspflichten vorliegt. Bei leicht fahrlässiger Verletzung wesentlicher Pflichten ist die Haftung auf den vertragstypischen, vorhersehbaren Schaden begrenzt. Die Haftung nach dem Produkthaftungsgesetz bleibt unberührt.</span>
+      </div>
+      <div class="agb-item">
+        <span class="item-num">7.4</span>
+        <span class="item-text">Wir haften nicht für die Erreichung gesundheitlicher Ziele oder den Eintritt eines Heilerfolgs. Der Kunde ist für sein Handeln und die Umsetzung der im Kurs vermittelten Inhalte selbst verantwortlich.</span>
+      </div>
+    </div>
+
+    <!-- § 8 -->
+    <div class="agb-section" id="s8">
+      <h2><span class="num">8</span>Datenschutz und Verschwiegenheit</h2>
+      <div class="agb-item">
+        <span class="item-num">8.1</span>
+        <span class="item-text">Wir verarbeiten personenbezogene Daten ausschließlich im Rahmen der gesetzlichen Bestimmungen und in Übereinstimmung mit der DSGVO. Details hierzu sind in unserer gesonderten <a href="datenschutz.html">Datenschutzerklärung</a> geregelt.</span>
+      </div>
+      <div class="agb-item">
+        <span class="item-num">8.2</span>
+        <span class="item-text">Als Heilpraktikerin besteht eine vertragliche Verschwiegenheitspflicht aus dem Behandlungsvertrag und der Berufsordnung. Wir verpflichten uns, sämtliche Informationen und Gesundheitsdaten, die uns im Rahmen unserer Tätigkeit bekannt werden, vertraulich zu behandeln.</span>
+      </div>
+      <div class="agb-item">
+        <span class="item-num">8.3</span>
+        <span class="item-text">Eine Weitergabe von Daten an Dritte erfolgt nur, sofern dies gesetzlich vorgeschrieben ist (z. B. nach dem Infektionsschutzgesetz), zur Erfüllung des Vertrages erforderlich ist oder der Kunde ausdrücklich eingewilligt hat. Bei externen Dienstleistern schließen wir Auftragsverarbeitungsverträge gemäß Art. 28 DSGVO ab.</span>
+      </div>
+      <div class="agb-item">
+        <span class="item-num">8.4</span>
+        <span class="item-text">Patientendaten werden zehn Jahre nach dem letzten Kontakt aufbewahrt und anschließend gelöscht, soweit keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</span>
+      </div>
+    </div>
+
+    <!-- § 9 -->
+    <div class="agb-section" id="s9">
+      <h2><span class="num">9</span>Rechte an digitalen Inhalten</h2>
+      <div class="agb-item">
+        <span class="item-num">9.1</span>
+        <span class="item-text">Mit dem Erwerb eines Online-Kurses erhält der Kunde ein einfaches, nicht übertragbares Nutzungsrecht an den digitalen Inhalten. Eine Vervielfältigung, Verbreitung oder öffentliche Wiedergabe ohne vorherige schriftliche Zustimmung ist untersagt.</span>
+      </div>
+      <div class="agb-item">
+        <span class="item-num">9.2</span>
+        <span class="item-text">Wir behalten uns alle Rechte an bereitgestellten Inhalten vor. Der Kunde ist verpflichtet, geeignete Maßnahmen zu treffen, um den Zugriff Dritter auf die Inhalte zu verhindern.</span>
+      </div>
+    </div>
+
+    <!-- § 10 -->
+    <div class="agb-section" id="s10">
+      <h2><span class="num">10</span>Gerichtsstand und anwendbares Recht</h2>
+      <div class="agb-item">
+        <span class="item-num">10.1</span>
+        <span class="item-text">Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts (CISG).</span>
+      </div>
+      <div class="agb-item">
+        <span class="item-num">10.2</span>
+        <span class="item-text">Ist der Kunde Kaufmann, juristische Person des öffentlichen Rechts oder öffentlich-rechtliches Sondervermögen, so ist Kollnburg ausschließlicher Gerichtsstand für alle Streitigkeiten aus oder im Zusammenhang mit diesem Vertrag.</span>
+      </div>
+      <div class="agb-item">
+        <span class="item-num">10.3</span>
+        <span class="item-text">Für Verbraucher gilt der gesetzliche Gerichtsstand. Zwingende Verbraucherschutzvorschriften des Staates, in dem der Kunde seinen gewöhnlichen Aufenthalt hat, bleiben unberührt.</span>
+      </div>
+    </div>
+
+    <!-- § 11 -->
+    <div class="agb-section" id="s11">
+      <h2><span class="num">11</span>Schlussbestimmungen</h2>
+      <div class="agb-item">
+        <span class="item-num">11.1</span>
+        <span class="item-text">Änderungen oder Ergänzungen dieser AGB bedürfen der Schriftform. Dies gilt auch für die Aufhebung des Schriftformerfordernisses.</span>
+      </div>
+      <div class="agb-item">
+        <span class="item-num">11.2</span>
+        <span class="item-text">Sollten einzelne Bestimmungen dieser AGB unwirksam sein oder werden, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt. Anstelle der unwirksamen Bestimmung tritt die gesetzliche Regelung.</span>
+      </div>
+      <div class="agb-item">
+        <span class="item-num">11.3</span>
+        <span class="item-text">Die Vertragssprache ist Deutsch. Änderungen der Rechtsform, Kontaktdaten oder vertretungsberechtigten Personen werden dem Kunden umgehend mitgeteilt.</span>
+      </div>
+    </div>
+
+    <!-- Übersicht -->
+    <div class="agb-section" id="uebersicht">
+      <h2><span class="num" style="background:var(--gold);">—</span>Übersicht der Angaben</h2>
+      <div class="overview-grid">
+        <div class="overview-row"><span><strong>Unternehmen:</strong> Stephanie Meurer, Einzelunternehmen, 94262 Kollnburg (Deutschland)</span></div>
+        <div class="overview-row"><span><strong>Leistungen:</strong> Naturheilkundliche Behandlungen und Online-Kurse (digitale Inhalte); keine Abos, keine physischen Lieferungen</span></div>
+        <div class="overview-row"><span><strong>Vertragsabschluss:</strong> Mündlich oder über die Website; Kundentyp: B2C und B2B</span></div>
+        <div class="overview-row"><span><strong>Preise &amp; Zahlung:</strong> Euro, inkl. gesetzlicher MwSt.; Barzahlung, PayPal, Kreditkarte; Fälligkeit sofort</span></div>
+        <div class="overview-row"><span><strong>Widerrufsrecht:</strong> 14 Tage für Verbraucher bei digitalen Kursen; kein Widerrufsrecht bei Behandlungen und nach Kursbeginn</span></div>
+        <div class="overview-row"><span><strong>Haftung:</strong> Keine Erfolgsgarantie; gesetzliche Gewährleistungsfrist (2 Jahre) für digitale Produkte</span></div>
+        <div class="overview-row"><span><strong>Datenschutz:</strong> DSGVO-konform; separate Datenschutzerklärung; Verschwiegenheitspflicht; Aufbewahrung 10 Jahre</span></div>
+        <div class="overview-row"><span><strong>Gerichtsstand &amp; Recht:</strong> Deutsches Recht; Gerichtsstand Kollnburg (für Unternehmer)</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <img src="Namenszug_transparent.png" alt="Stephanie Meurer">
+    <p>Heilpraktikerin · Holzäckerstraße 30 · 94262 Kollnburg<br>
+      <a href="mailto:info@meurer-heilpraktikerin.de">info@meurer-heilpraktikerin.de</a>
+    </p>
+    <div class="footer-links">
+      <a href="index.html">Zur Website</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="agb.html">AGB</a>
+    </div>
+  </footer>
+
+</body>
+</html>

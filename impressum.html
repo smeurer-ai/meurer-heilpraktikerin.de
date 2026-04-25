@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impressum | Stephanie Meurer – Heilpraktikerin</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <meta name="robots" content="noindex, nofollow">
+
+  <style>
+    :root {
+      --primary:   #4a7c59;
+      --primary-d: #3a6347;
+      --primary-l: #e8f0eb;
+      --bg:        #f5f0eb;
+      --text:      #44546a;
+      --dark:      #1a2d20;
+      --light:     #faf8f5;
+      --gold:      #b8965a;
+      --white:     #ffffff;
+      --font-h:    'Cormorant Garamond', Georgia, serif;
+      --font-b:    'Raleway', system-ui, sans-serif;
+      --ease:      cubic-bezier(.25,.46,.45,.94);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-b);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    a { text-decoration: none; color: var(--primary); }
+    a:hover { text-decoration: underline; }
+
+    /* HEADER */
+    .page-header {
+      background: var(--dark);
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 100%;
+    }
+    .page-header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .page-header img { height: 44px; filter: brightness(0) invert(1); opacity: .85; }
+    .header-back {
+      font-family: var(--font-b);
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.6);
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      transition: color .3s;
+      text-decoration: none;
+    }
+    .header-back:hover { color: rgba(255,255,255,1); text-decoration: none; }
+    .header-back svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2; fill: none; }
+
+    /* HERO STRIP */
+    .page-hero {
+      background: linear-gradient(135deg, #0f1f14 0%, #1a3d28 60%, #2a5c3a 100%);
+      padding: 4rem 2.5rem 3.5rem;
+      text-align: center;
+    }
+    .page-hero h1 {
+      font-family: var(--font-h);
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: .75rem;
+    }
+    .page-hero p {
+      font-size: .85rem;
+      color: rgba(255,255,255,.45);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    /* CONTENT */
+    .content-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 4rem 2.5rem 6rem;
+    }
+
+    .imp-section {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(74,124,89,.10);
+    }
+
+    .imp-section h2 {
+      font-family: var(--font-h);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 1.25rem;
+      padding-bottom: .75rem;
+      border-bottom: 1.5px solid var(--primary-l);
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+    .imp-section h2::before {
+      content: '';
+      width: 4px;
+      height: 1.4rem;
+      background: var(--primary);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .imp-section h3 {
+      font-family: var(--font-b);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin: 1.25rem 0 .4rem;
+    }
+    .imp-section h3:first-of-type { margin-top: 0; }
+
+    .imp-section p {
+      font-size: .92rem;
+      line-height: 1.85;
+      color: var(--text);
+      margin-bottom: .75rem;
+    }
+    .imp-section p:last-child { margin-bottom: 0; }
+
+    .imp-section a {
+      color: var(--primary);
+      word-break: break-all;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: .5rem;
+    }
+    .info-item {
+      background: var(--bg);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+    }
+    .info-item strong {
+      display: block;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: .3rem;
+    }
+    .info-item span { font-size: .92rem; color: var(--text); }
+
+    .notice-box {
+      background: var(--primary-l);
+      border-left: 3px solid var(--primary);
+      border-radius: 0 10px 10px 0;
+      padding: 1rem 1.25rem;
+      margin-top: 1rem;
+    }
+    .notice-box p {
+      font-size: .85rem !important;
+      color: var(--primary-d) !important;
+      margin: 0 !important;
+      font-style: italic;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark);
+      padding: 2.5rem;
+      text-align: center;
+    }
+    footer img { height: 36px; margin: 0 auto 1.25rem; filter: brightness(0) invert(1); opacity: .5; }
+    footer p { font-size: .8rem; color: rgba(255,255,255,.3); line-height: 1.8; }
+    footer a { color: rgba(255,255,255,.45); }
+    footer a:hover { color: rgba(255,255,255,.8); text-decoration: none; }
+    .footer-links { display: flex; justify-content: center; gap: 2rem; margin-top: 1rem; }
+
+    @media (max-width: 640px) {
+      .content-wrap { padding: 2rem 1.25rem 4rem; }
+      .imp-section  { padding: 1.75rem 1.25rem; }
+      .info-grid    { grid-template-columns: 1fr; }
+      .page-hero    { padding: 3rem 1.5rem 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <img src="Namenszug_transparent.png" alt="Stephanie Meurer">
+      <a href="index.html" class="header-back">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        Zur Website
+      </a>
+    </div>
+  </div>
+
+  <!-- HERO STRIP -->
+  <div class="page-hero">
+    <h1>Impressum</h1>
+    <p>Stephanie Meurer · Heilpraktikerin</p>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content-wrap">
+
+    <!-- Verantwortlich -->
+    <div class="imp-section">
+      <h2>Angaben gemäß § 5 TMG</h2>
+      <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
+      <div class="info-grid">
+        <div class="info-item">
+          <strong>Name</strong>
+          <span>Stephanie Meurer</span>
+        </div>
+        <div class="info-item">
+          <strong>Berufsbezeichnung</strong>
+          <span>Heilpraktikerin</span>
+        </div>
+        <div class="info-item">
+          <strong>Adresse</strong>
+          <span>Holzäckerstraße 30<br>94262 Kollnburg</span>
+        </div>
+        <div class="info-item">
+          <strong>Kontakt</strong>
+          <span>Telefon: 09942–9486842<br>
+            E-Mail: <a href="mailto:info@meurer-heilpraktikerin.de">info@meurer-heilpraktikerin.de</a>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Berufsrechtliche Angaben -->
+    <div class="imp-section">
+      <h2>Berufsrechtliche Angaben</h2>
+      <div class="info-grid">
+        <div class="info-item">
+          <strong>Gesetzliche Berufsbezeichnung</strong>
+          <span>Heilpraktiker (verliehen in der Bundesrepublik Deutschland)</span>
+        </div>
+        <div class="info-item">
+          <strong>Zuständige Aufsichtsbehörde</strong>
+          <span>Regen</span>
+        </div>
+        <div class="info-item">
+          <strong>Amtsärztliche Überprüfung</strong>
+          <span>09.11.2005</span>
+        </div>
+        <div class="info-item">
+          <strong>Behördliche Erlaubnis durch</strong>
+          <span>Gesundheitsamt Saarbrücken</span>
+        </div>
+      </div>
+      <p style="margin-top:1.25rem;">Die Heilkundliche Tätigkeit ist von der Umsatzsteuer gemäß § 4 Nr. 14 UStG befreit.</p>
+      <p><strong>Berufshaftpflichtversicherung:</strong> Continentale (Geltungsbereich: Bundesrepublik Deutschland)</p>
+
+      <h3>Berufsordnung</h3>
+      <p>Nachzulesen unter: <a href="http://www.heilpraktiker.org/files/seiteninhalt/inhaltsseiten/c_fuer_heilpraktiker/ca_berufsziele/ca-02-berufsordnung/ca-02-01-berufsordnung-2008-final.pdf" target="_blank" rel="noopener">www.heilpraktiker.org</a></p>
+      <p>Rechtsgrundlage der Heilpraktikertätigkeit (Heilpraktikergesetz und Durchführungsverordnung): <a href="http://www.gesetze-im-internet.de/heilprg/index.html" target="_blank" rel="noopener">www.gesetze-im-internet.de</a></p>
+    </div>
+
+    <!-- Abmahnhinweis -->
+    <div class="imp-section">
+      <h2>Hinweis zu Abmahnungen</h2>
+      <p>Sollte der Inhalt oder die Gestaltung dieser Website gesetzliche Bestimmungen, Rechte Dritter oder gewerbliche Schutz- oder Persönlichkeitsrechte verletzen, bitte ich – unter Berufung auf § 8 Abs. 4 UWG – umgehend per E-Mail um eine entsprechende Nachricht ohne Kostennote, damit ich zügig Abhilfe schaffen kann.</p>
+      <div class="notice-box">
+        <p>Bitte keine Abmahnung ohne vorherigen Kontakt! Zu Recht beanstandete Passagen oder Bilder werden unverzüglich entfernt oder berichtigt – ohne Einschaltung eines Anwaltes.</p>
+      </div>
+    </div>
+
+    <!-- Haftungsausschluss -->
+    <div class="imp-section">
+      <h2>Haftungsausschluss</h2>
+      <h3>Allgemeines</h3>
+      <p>Diese Website und sämtliche Informationen richten sich nach deutschem Recht. Die von uns abgegebenen Informationen können nicht genutzt werden, um Krankheiten oder Leiden selbst zu erkennen und zu therapieren. Für die Vollständigkeit oder Richtigkeit der Informationen kann keine Garantie übernommen werden.</p>
+
+      <h3>Externe Links</h3>
+      <p>Für Informationen Dritter sowie für Inhalte verlinkter Seiten kann keine Haftung übernommen werden. Die verlinkten Seiten werden regelmäßig auf rechtswidrige Inhalte überprüft, eine dauerhafte inhaltliche Kontrolle ist jedoch ohne konkrete Anhaltspunkte nicht zumutbar.</p>
+
+      <h3>Urheberrecht</h3>
+      <p>Sämtliche Texte und Grafiken auf dieser Website sind urheberrechtlich geschützt. Gebrauch oder Vervielfältigung ohne vorherige schriftliche Genehmigung sind nicht gestattet.</p>
+    </div>
+
+    <!-- Heilmittelwerbegesetz -->
+    <div class="imp-section">
+      <h2>Hinweis nach HWG</h2>
+      <p>Vorschriftsmäßig weise ich darauf hin, dass viele Methoden der Naturheilkunde, der Energieheilkunde und der biologischen Medizin im strengnaturwissenschaftlichen Sinne (noch) nicht bewiesen sind und deshalb von der klassischen Schulmedizin nicht anerkannt sind. Die Aussagen beruhen vorwiegend auf den unzähligen positiven Erfahrungen mit den jeweiligen Methoden, die sich seit vielen Jahren bzw. Jahrzehnten bewährt haben.</p>
+      <p>Die Informationen auf dieser Website stellen kein Heilversprechen dar. Es wird weder Linderung noch Verbesserung eines Krankheitszustandes garantiert oder versprochen. Die Inhalte stellen kein Vertragsangebot dar und können keine persönliche Beratung, Untersuchung oder Diagnose durch einen Therapeuten ersetzen.</p>
+      <p>Sofern ärztlicher Rat bzw. ärztliche Behandlung erforderlich ist, empfehle ich die unverzügliche Weiterleitung an einen entsprechenden Facharzt.</p>
+    </div>
+
+    <!-- Datenschutz -->
+    <div class="imp-section">
+      <h2>Datenschutz</h2>
+      <p>Wir schützen Ihre persönlichen Daten gewissenhaft und befolgen alle Bestimmungen der Datenschutzgesetze. Personenbezogene Daten werden auf dieser Website nur soweit erhoben, wie es technisch für statistische Zwecke notwendig ist. Die temporär gespeicherten Daten werden weder verkauft noch aus anderen Gründen an Dritte weitergegeben.</p>
+
+      <h3>Automatisch erfasste Daten</h3>
+      <p>Ihr Browser übermittelt automatisch folgende Daten, die temporär gespeichert werden:</p>
+      <p>Browsertyp und Version · Betriebssystem · Referrer URL · IP-Adresse · Zeitpunkt des Seitenaufrufs</p>
+      <p>Diese Daten sind anonym und werden nicht einzelnen Personen zugeordnet, nicht mit anderen Quellen zusammengeführt und nach statistischer Auswertung gelöscht.</p>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <img src="Namenszug_transparent.png" alt="Stephanie Meurer">
+    <p>Heilpraktikerin · Holzäckerstraße 30 · 94262 Kollnburg<br>
+      <a href="mailto:info@meurer-heilpraktikerin.de">info@meurer-heilpraktikerin.de</a>
+    </p>
+    <div class="footer-links">
+      <a href="index.html">Zur Website</a>
+      <a href="impressum.html">Impressum</a>
+    </div>
+  </footer>
+
+</body>
+</html>
