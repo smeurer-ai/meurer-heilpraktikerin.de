@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datenschutzerklärung | Stephanie Meurer – Heilpraktikerin</title>
+
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=cormorant-garamond:300,300i,400,400i,600,600i|raleway:300,400,500,600,700&display=swap" rel="stylesheet">
+
+  <meta name="robots" content="noindex, nofollow">
+
+  <style>
+    :root {
+      --primary:   #4a7c59;
+      --primary-d: #3a6347;
+      --primary-l: #e8f0eb;
+      --bg:        #f5f0eb;
+      --text:      #44546a;
+      --dark:      #1a2d20;
+      --light:     #faf8f5;
+      --gold:      #b8965a;
+      --white:     #ffffff;
+      --font-h:    'Cormorant Garamond', Georgia, serif;
+      --font-b:    'Raleway', system-ui, sans-serif;
+      --ease:      cubic-bezier(.25,.46,.45,.94);
+      --r:         16px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-b); background: var(--bg); color: var(--text); line-height: 1.7; }
+    a { text-decoration: none; color: var(--primary); }
+    a:hover { text-decoration: underline; }
+
+    /* HEADER */
+    .page-header { background: var(--dark); padding: 2rem 2.5rem; }
+    .page-header-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .page-header img { height: 44px; filter: brightness(0) invert(1); opacity: .85; }
+    .header-back {
+      font-size: .8rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(255,255,255,.6); display: flex; align-items: center; gap: .5rem;
+      transition: color .3s; text-decoration: none;
+    }
+    .header-back:hover { color: #fff; text-decoration: none; }
+    .header-back svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2; fill: none; }
+
+    /* HERO */
+    .page-hero {
+      background: linear-gradient(135deg, #0f1f14 0%, #1a3d28 60%, #2a5c3a 100%);
+      padding: 4rem 2.5rem 3.5rem; text-align: center;
+    }
+    .page-hero h1 {
+      font-family: var(--font-h); font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 300; color: var(--white); margin-bottom: .75rem;
+    }
+    .page-hero p { font-size: .85rem; color: rgba(255,255,255,.45); letter-spacing: .1em; text-transform: uppercase; }
+
+    /* INHALTSVERZEICHNIS */
+    .toc-wrap { max-width: 860px; margin: 3rem auto 0; padding: 0 2.5rem; }
+    .toc {
+      background: var(--white); border-radius: var(--r);
+      padding: 2rem 2.5rem; border: 1px solid rgba(74,124,89,.12);
+    }
+    .toc h2 {
+      font-family: var(--font-b); font-size: .72rem; font-weight: 700;
+      letter-spacing: .16em; text-transform: uppercase; color: var(--primary); margin-bottom: 1rem;
+    }
+    .toc ol { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: .4rem .75rem; }
+    .toc a {
+      font-size: .88rem; color: var(--text); display: flex; align-items: baseline;
+      gap: .5rem; transition: color .25s; text-decoration: none;
+    }
+    .toc a:hover { color: var(--primary); text-decoration: none; }
+    .toc a::before { content: attr(data-num); font-size: .72rem; font-weight: 700; color: var(--primary); min-width: 1.8rem; }
+
+    /* CONTENT */
+    .content-wrap { max-width: 860px; margin: 0 auto; padding: 2rem 2.5rem 6rem; }
+
+    .ds-section {
+      background: var(--white); border-radius: var(--r); padding: 2.5rem;
+      margin-bottom: 1.25rem; border: 1px solid rgba(74,124,89,.10); scroll-margin-top: 2rem;
+    }
+    .ds-section h2 {
+      font-family: var(--font-h); font-size: 1.45rem; font-weight: 600; color: var(--dark);
+      margin-bottom: 1.5rem; padding-bottom: .75rem; border-bottom: 1.5px solid var(--primary-l);
+      display: flex; align-items: center; gap: .75rem;
+    }
+    .ds-section h2 .num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px; min-width: 32px; border-radius: 50%;
+      background: var(--primary); color: var(--white);
+      font-family: var(--font-b); font-size: .8rem; font-weight: 700;
+    }
+    .ds-section h3 {
+      font-family: var(--font-b); font-size: .78rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase; color: var(--primary);
+      margin: 1.5rem 0 .6rem;
+    }
+    .ds-section h3:first-of-type { margin-top: .25rem; }
+    .ds-section p { font-size: .92rem; line-height: 1.85; color: var(--text); margin-bottom: .85rem; }
+    .ds-section p:last-child { margin-bottom: 0; }
+    .ds-section ul { list-style: none; display: flex; flex-direction: column; gap: .5rem; margin-bottom: .85rem; }
+    .ds-section ul li {
+      display: flex; align-items: flex-start; gap: .75rem;
+      font-size: .9rem; color: var(--text); line-height: 1.7;
+    }
+    .ds-section ul li::before {
+      content: '';
+      width: 6px; height: 6px; min-width: 6px; border-radius: 50%;
+      background: var(--primary); margin-top: .6rem;
+    }
+
+    .highlight-box {
+      background: var(--primary-l); border-left: 3px solid var(--primary);
+      border-radius: 0 10px 10px 0; padding: 1rem 1.25rem; margin: 1rem 0;
+    }
+    .highlight-box p { font-size: .88rem !important; color: var(--primary-d) !important; margin: 0 !important; }
+
+    .bunny-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .35rem .9rem; background: rgba(74,124,89,.1);
+      border: 1px solid rgba(74,124,89,.25); border-radius: 50px;
+      font-size: .78rem; font-weight: 600; color: var(--primary-d);
+      margin-bottom: 1rem;
+    }
+    .bunny-badge::before {
+      content: '🇪🇺'; font-size: .9rem;
+    }
+
+    .rights-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin-top: .5rem;
+    }
+    .right-item {
+      background: var(--bg); border-radius: 10px; padding: .85rem 1rem;
+      font-size: .88rem; color: var(--text); line-height: 1.5;
+    }
+    .right-item strong { display: block; color: var(--dark); font-size: .8rem; margin-bottom: .2rem; }
+
+    /* FOOTER */
+    footer { background: var(--dark); padding: 2.5rem; text-align: center; }
+    footer img { height: 36px; margin: 0 auto 1.25rem; filter: brightness(0) invert(1); opacity: .5; }
+    footer p { font-size: .8rem; color: rgba(255,255,255,.3); line-height: 1.8; }
+    footer a { color: rgba(255,255,255,.45); }
+    footer a:hover { color: rgba(255,255,255,.8); text-decoration: none; }
+    .footer-links { display: flex; justify-content: center; gap: 2rem; margin-top: 1rem; flex-wrap: wrap; }
+
+    @media (max-width: 640px) {
+      .toc-wrap { padding: 0 1.25rem; }
+      .content-wrap { padding: 1.5rem 1.25rem 4rem; }
+      .ds-section { padding: 1.75rem 1.25rem; }
+      .toc ol { grid-template-columns: 1fr; }
+      .rights-grid { grid-template-columns: 1fr; }
+      .page-hero { padding: 3rem 1.5rem 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <img src="Namenszug_transparent.png" alt="Stephanie Meurer">
+      <a href="index.html" class="header-back">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        Zur Website
+      </a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <h1>Datenschutzerklärung</h1>
+    <p>Stephanie Meurer · Heilpraktikerin &amp; Dozentin</p>
+  </div>
+
+  <!-- INHALTSVERZEICHNIS -->
+  <div class="toc-wrap">
+    <div class="toc">
+      <h2>Inhaltsverzeichnis</h2>
+      <ol>
+        <li><a href="#s1" data-num="1.">Einleitung</a></li>
+        <li><a href="#s2" data-num="2.">Verantwortliche Stelle</a></li>
+        <li><a href="#s3" data-num="3.">Verarbeitung personenbezogener Daten</a></li>
+        <li><a href="#s4" data-num="4.">Datenverarbeitung auf der Website</a></li>
+        <li><a href="#s5" data-num="5.">Hosting, IT und Cloud-Dienste</a></li>
+        <li><a href="#s6" data-num="6.">Zahlungsabwicklung</a></li>
+        <li><a href="#s7" data-num="7.">Datenübermittlung und Empfänger</a></li>
+        <li><a href="#s8" data-num="8.">Sicherheitsmaßnahmen</a></li>
+        <li><a href="#s9" data-num="9.">Rechte der betroffenen Personen</a></li>
+        <li><a href="#s10" data-num="10.">Pflicht zur Bereitstellung</a></li>
+        <li><a href="#s11" data-num="11.">Änderungen</a></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content-wrap">
+
+    <!-- 1 -->
+    <div class="ds-section" id="s1">
+      <h2><span class="num">1</span>Einleitung</h2>
+      <p>Diese Datenschutzerklärung informiert Sie darüber, welche personenbezogenen Daten durch die Praxis Stephanie Meurer, Heilpraktikerin &amp; Dozentin, verarbeitet werden und zu welchen Zwecken dies erfolgt. Heilpraktiker verarbeiten neben üblichen personenbezogenen Daten auch besondere Kategorien nach Art. 9 DSGVO, insbesondere Gesundheitsdaten. Solche Gesundheitsdaten sind besonders schützenswert, da sie einen tiefen Einblick in den Gesundheitszustand und persönliche Lebensumstände bieten. Der Gesetzgeber verlangt, dass Sie als Patientin oder Patient darüber transparent informiert werden.</p>
+    </div>
+
+    <!-- 2 -->
+    <div class="ds-section" id="s2">
+      <h2><span class="num">2</span>Verantwortliche Stelle und Kontaktdaten</h2>
+      <p><strong>Verantwortliche Stelle:</strong> Stephanie Meurer, Heilpraktikerin &amp; Dozentin (Einzelunternehmen)<br>
+      Holzäckerstraße 30, 94262 Kollnburg<br>
+      Telefon: 09942 9486842<br>
+      E-Mail: <a href="mailto:info@meurer-heilpraktikerin.de">info@meurer-heilpraktikerin.de</a></p>
+      <p>Gemäß Art. 13 DSGVO muss der Verantwortliche seinen Namen und seine Kontaktdaten offenlegen. Ein Datenschutzbeauftragter ist nicht benannt, da die Praxis nach Art. 37 Abs. 4 DSGVO nicht zur Bestellung verpflichtet ist. Bei Fragen zum Datenschutz können Sie sich jederzeit unter den oben angegebenen Kontaktdaten an uns wenden.</p>
+    </div>
+
+    <!-- 3 -->
+    <div class="ds-section" id="s3">
+      <h2><span class="num">3</span>Verarbeitung personenbezogener Daten</h2>
+      <h3>3.1 Datenarten und Zwecke</h3>
+      <p>Wir verarbeiten ausschließlich personenbezogene Daten, die zur Durchführung unserer Leistungen erforderlich sind oder die Sie uns freiwillig mitteilen. Dazu zählen:</p>
+      <ul>
+        <li><strong>Stammdaten:</strong> Vorname, Nachname, Adresse, E-Mail-Adresse und Telefonnummer (zur Terminvereinbarung, Vertragsabwicklung und Kommunikation).</li>
+        <li><strong>Zahlungsdaten:</strong> Kreditkarten- und Bankdaten sowie PayPal-Konto (zur Abrechnung unserer Leistungen).</li>
+        <li><strong>Gesundheitsdaten:</strong> Blut- und Stuhlbefunde sowie sonstige gesundheitsbezogene Angaben. Diese besonderen Daten unterliegen erhöhten Schutzanforderungen.</li>
+      </ul>
+      <p>Wir verwenden diese Daten für folgende Zwecke:</p>
+      <ul>
+        <li><strong>Vertragsabwicklung und Terminorganisation</strong> – zur Durchführung vorvertraglicher Maßnahmen und zur Erfüllung des Heilbehandlungsvertrags (Art. 6 Abs. 1 lit. b DSGVO).</li>
+        <li><strong>Kontaktaufnahme und Kommunikation</strong> – zur Beantwortung Ihrer Anfragen und Terminbestätigungen per E-Mail oder Telefon.</li>
+        <li><strong>Marketing und Newsletter</strong> – zur Versendung von Informationen zu unseren Leistungen, Veranstaltungen oder Angeboten; dies erfolgt nur mit Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).</li>
+        <li><strong>Buchhaltung und gesetzliche Pflichten</strong> – zur Erfüllung handels- und steuerrechtlicher Aufbewahrungspflichten (Art. 6 Abs. 1 lit. c DSGVO).</li>
+      </ul>
+      <h3>3.2 Rechtsgrundlagen</h3>
+      <ul>
+        <li><strong>Einwilligung:</strong> wenn Sie der Verarbeitung zugestimmt haben (z. B. für Marketingzwecke). Sie können Ihre Einwilligung jederzeit widerrufen.</li>
+        <li><strong>Vertragserfüllung:</strong> zur Anbahnung und Durchführung eines Heilbehandlungsvertrages (Art. 6 Abs. 1 lit. b DSGVO).</li>
+        <li><strong>Berechtigtes Interesse:</strong> zur Wahrung unserer berechtigten Interessen, z. B. zur effektiven Praxisführung (Art. 6 Abs. 1 lit. f DSGVO).</li>
+      </ul>
+      <h3>3.3 Speicherung und Löschung</h3>
+      <p>Personenbezogene Daten dürfen nur so lange gespeichert werden, wie eine rechtliche Grundlage besteht. Zudem gelten gesetzliche Aufbewahrungsfristen, z. B. zehn Jahre für Rechnungen und sechs Jahre für Geschäftsbriefe. Gesundheitsdaten müssen aufgrund beruflicher Vorgaben häufig zehn Jahre aufbewahrt werden. Nach Wegfall des Zweckes oder Ablauf gesetzlicher Fristen werden die Daten gelöscht oder anonymisiert.</p>
+    </div>
+
+    <!-- 4 -->
+    <div class="ds-section" id="s4">
+      <h2><span class="num">4</span>Datenverarbeitung im Rahmen unserer Website</h2>
+      <h3>4.1 Betrieb der Website</h3>
+      <p>Unsere Website meurer-heilpraktikerin.de wird von All-inkl, Neusalza-Spremberg, gehostet. Mit dem Hoster besteht ein Vertrag zur Auftragsverarbeitung. Beim Besuch unserer Website werden automatisch Daten wie IP-Adresse, Datum und Uhrzeit des Abrufs, übertragene Datenmenge, Browser-Typ und Betriebssystem erhoben. Diese Daten dienen der Systemsicherheit und werden nach spätestens sieben Tagen gelöscht.</p>
+
+      <h3>4.2 Cookies und Cookie-Banner</h3>
+      <p>Unsere Website verwendet Cookies. Technisch notwendige Cookies sorgen für eine sichere Nutzung. Marketing- oder Analyse-Cookies setzen wir erst nach Ihrer Einwilligung. Laut TDDDG müssen „Akzeptieren" und „Ablehnen" im Cookie-Banner gleichwertig dargestellt werden.</p>
+
+      <h3>4.3 Analyse-Tools (Google Analytics)</h3>
+      <p>Wir nutzen Google Analytics (Google Ireland Limited) zur statistischen Auswertung. Die IP-Anonymisierung ist aktiviert. Daten können auf Server der Google LLC in die USA übertragen werden. Google verarbeitet diese Daten in unserem Auftrag auf Basis eines Auftragsverarbeitungsvertrags und nur nach Ihrer Einwilligung.</p>
+
+      <h3>4.4 Marketing-Tools (Facebook Pixel, Google Ads)</h3>
+      <p>Wir nutzen Facebook Pixel (Meta Platforms Ireland Ltd.) und Google Ads für Werbung. Dabei können Daten wie IP-Adresse und Nutzerverhalten an Meta bzw. Google übermittelt werden. Diese Verarbeitung erfolgt nur mit Ihrer Einwilligung und kann über das Cookie-Banner widerrufen werden.</p>
+
+      <h3>4.5 Newsletter-Versand</h3>
+      <p>Für unseren Newsletter verwenden wir Brevo oder ein ähnliches Tool. Der Anbieter verarbeitet Ihre E-Mail-Adresse in unserem Auftrag. Sie erhalten den Newsletter nur nach Anmeldung; eine Abmeldung ist jederzeit über den Abmelde-Link möglich.</p>
+
+      <h3>4.6 Webfonts (Bunny Fonts)</h3>
+      <div class="bunny-badge">EU-Server · keine IP-Protokollierung · DSGVO-konform</div>
+      <p>Für die Darstellung unserer Website verwenden wir den Webfont-Dienst <strong>Bunny Fonts</strong> (Anbieter: BunnyCDN, Bunny Way 1, 1000 Ljubljana, Slowenien; <a href="https://bunny.net" target="_blank" rel="noopener">bunny.net</a>). Beim Besuch unserer Website lädt Ihr Browser die benötigten Schriftarten von den Servern von Bunny Fonts.</p>
+      <div class="highlight-box">
+        <p>Bunny Fonts wurde als datenschutzfreundliche Alternative zu Google Fonts entwickelt. Nach Angaben des Anbieters werden dabei <strong>keine IP-Adressen protokolliert</strong> und <strong>keine Cookies gesetzt</strong>. Die Server befinden sich innerhalb der Europäischen Union.</p>
+      </div>
+      <p>Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer einheitlichen und optimierten Darstellung der Website). Weitere Informationen finden Sie in der Datenschutzerklärung von Bunny Fonts unter <a href="https://bunny.net/privacy" target="_blank" rel="noopener">bunny.net/privacy</a>.</p>
+    </div>
+
+    <!-- 5 -->
+    <div class="ds-section" id="s5">
+      <h2><span class="num">5</span>Hosting, IT und Cloud-Dienste</h2>
+      <p>Unsere Website und E-Mails werden bei <strong>All-inkl</strong> gehostet. Für die Verwaltung der Praxis setzen wir die Praxissoftware <strong>Leminiscus</strong> ein. Diese ist mit Zwei-Faktor-Authentifizierung geschützt. Rechnungen und sensible Dokumente werden ausschließlich verschlüsselt und mit Passwort verschickt. Zudem nutzen wir <strong>Google Workspace</strong> für interne Kommunikation. Mit allen Dienstleistern bestehen Auftragsverarbeitungsverträge.</p>
+    </div>
+
+    <!-- 6 -->
+    <div class="ds-section" id="s6">
+      <h2><span class="num">6</span>Zahlungsabwicklung</h2>
+      <p>Wir akzeptieren folgende Zahlungsanbieter:</p>
+      <ul>
+        <li><strong>PayPal</strong> – Bei Zahlung über PayPal werden Ihre Zahlungsdaten an PayPal übermittelt. Es gelten die Datenschutzbestimmungen von PayPal.</li>
+        <li><strong>Stripe</strong> – Bei Kreditkartenzahlungen werden Ihre Daten an Stripe übermittelt. Wir haben mit Stripe einen Auftragsverarbeitungsvertrag abgeschlossen.</li>
+      </ul>
+      <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).</p>
+    </div>
+
+    <!-- 7 -->
+    <div class="ds-section" id="s7">
+      <h2><span class="num">7</span>Datenübermittlung und Empfänger</h2>
+      <p>Wir geben Daten nur weiter, wenn dies zur Vertragserfüllung erforderlich ist, eine gesetzliche Pflicht besteht oder Sie eingewilligt haben. Mögliche Empfänger sind: Auftragsverarbeiter (All-inkl, Leminiscus, Brevo, Google, Meta), Steuerberater und Finanzbehörden sowie Zahlungsdienstleister.</p>
+      <p>Eine Datenübermittlung in Drittländer findet grundsätzlich nicht statt; falls ausnahmsweise nötig, erfolgt sie auf Grundlage der EU-Standardvertragsklauseln.</p>
+    </div>
+
+    <!-- 8 -->
+    <div class="ds-section" id="s8">
+      <h2><span class="num">8</span>Sicherheitsmaßnahmen</h2>
+      <p>Gemäß Art. 32 DSGVO setzen wir technische und organisatorische Maßnahmen um, darunter:</p>
+      <ul>
+        <li>SSL/TLS-Verschlüsselung (Standard für den sicheren Datentransfer)</li>
+        <li>Zwei-Faktor-Authentifizierung für die Praxissoftware</li>
+        <li>Passwortgeschützte Übermittlung sensibler Dokumente</li>
+        <li>Regelmäßige Backups und Updates</li>
+      </ul>
+    </div>
+
+    <!-- 9 -->
+    <div class="ds-section" id="s9">
+      <h2><span class="num">9</span>Rechte der betroffenen Personen</h2>
+      <p>Als betroffene Person haben Sie folgende Rechte:</p>
+      <div class="rights-grid">
+        <div class="right-item"><strong>Auskunft (Art. 15 DSGVO)</strong>Information über gespeicherte Daten</div>
+        <div class="right-item"><strong>Berichtigung (Art. 16 DSGVO)</strong>Korrektur unrichtiger Daten</div>
+        <div class="right-item"><strong>Löschung (Art. 17 DSGVO)</strong>Sofern keine Aufbewahrungspflichten bestehen</div>
+        <div class="right-item"><strong>Einschränkung (Art. 18 DSGVO)</strong>Einschränkung der Verarbeitung</div>
+        <div class="right-item"><strong>Datenübertragbarkeit (Art. 20 DSGVO)</strong>Herausgabe in maschinenlesbarem Format</div>
+        <div class="right-item"><strong>Widerspruch (Art. 21 DSGVO)</strong>Insbesondere gegen Direktwerbung</div>
+        <div class="right-item"><strong>Widerruf (Art. 7 Abs. 3 DSGVO)</strong>Widerruf erteilter Einwilligungen</div>
+        <div class="right-item"><strong>Beschwerderecht</strong>Bei der zuständigen Aufsichtsbehörde</div>
+      </div>
+      <div class="highlight-box" style="margin-top:1.5rem;">
+        <p>Zuständige Datenschutzaufsichtsbehörde: <strong>BayLDA</strong>, Promenade 27, 91522 Ansbach. Anfragen richten Sie bitte an: <a href="mailto:info@meurer-heilpraktikerin.de">info@meurer-heilpraktikerin.de</a></p>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="ds-section" id="s10">
+      <h2><span class="num">10</span>Pflicht zur Bereitstellung der Daten</h2>
+      <p>Die Bereitstellung Ihrer Daten ist für die Durchführung des Heilbehandlungsvertrages erforderlich. Ohne diese Daten können wir keine Termine vereinbaren oder behandeln. Eine gesetzliche Pflicht besteht nur, soweit gesetzliche Vorgaben dies verlangen.</p>
+    </div>
+
+    <!-- 11 -->
+    <div class="ds-section" id="s11">
+      <h2><span class="num">11</span>Änderungen dieser Datenschutzerklärung</h2>
+      <p>Wir behalten uns vor, diese Datenschutzerklärung anzupassen, um sie an geänderte Rechtslagen oder an Änderungen der Datenverarbeitung anzupassen. Die jeweils aktuelle Fassung finden Sie auf unserer Website. Stand: April 2026.</p>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <img src="Namenszug_transparent.png" alt="Stephanie Meurer">
+    <p>Heilpraktikerin &amp; Dozentin · Holzäckerstraße 30 · 94262 Kollnburg<br>
+      <a href="mailto:info@meurer-heilpraktikerin.de">info@meurer-heilpraktikerin.de</a>
+    </p>
+    <div class="footer-links">
+      <a href="index.html">Zur Website</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+    </div>
+  </footer>
+
+</body>
+</html>
