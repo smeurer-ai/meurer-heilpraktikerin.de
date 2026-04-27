@@ -2011,24 +2011,34 @@
           </div>
         </div>
         <div class="kontakt-form reveal-right">
-          <form onsubmit="return false;">
+          <div id="form-success" style="display:none; padding:1.5rem; background:rgba(88,160,100,.15); border:1px solid rgba(88,160,100,.4); border-radius:12px; color:#2d6a35; text-align:center; margin-bottom:1rem;">
+            <strong>Vielen Dank!</strong> Ihre Nachricht wurde erfolgreich gesendet. Ich melde mich so bald wie möglich bei Ihnen.
+          </div>
+          <div id="form-error" style="display:none; padding:1.5rem; background:rgba(200,60,60,.1); border:1px solid rgba(200,60,60,.3); border-radius:12px; color:#a03030; text-align:center; margin-bottom:1rem;">
+            <strong>Fehler beim Senden.</strong> Bitte versuchen Sie es erneut oder schreiben Sie direkt an info@meurer-heilpraktikerin.de.
+          </div>
+          <form id="kontakt-formular" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="49fd3d1b-48f9-49b4-8de2-ac8d599992db">
+            <input type="hidden" name="subject" id="subject-hidden" value="Neue Kontaktanfrage">
+            <input type="hidden" name="from_name" value="Kontaktformular meurer-heilpraktikerin.de">
+            <input type="checkbox" name="botcheck" style="display:none;">
             <div class="form-row">
               <div class="form-group">
                 <label for="vorname">Vorname</label>
-                <input type="text" id="vorname" placeholder="Ihr Vorname">
+                <input type="text" id="vorname" name="vorname" placeholder="Ihr Vorname" required>
               </div>
               <div class="form-group">
                 <label for="nachname">Nachname</label>
-                <input type="text" id="nachname" placeholder="Ihr Nachname">
+                <input type="text" id="nachname" name="nachname" placeholder="Ihr Nachname" required>
               </div>
             </div>
             <div class="form-group">
               <label for="email">E-Mail</label>
-              <input type="email" id="email" placeholder="ihre@email.de">
+              <input type="email" id="email" name="email" placeholder="ihre@email.de" required>
             </div>
             <div class="form-group">
               <label for="betreff">Betreff</label>
-              <select id="betreff">
+              <select id="betreff" name="betreff" required>
                 <option value="">Bitte wählen …</option>
                 <option>Erstgespräch / Therapie</option>
                 <option>Frage zu Online-Seminaren</option>
@@ -2037,9 +2047,9 @@
             </div>
             <div class="form-group">
               <label for="nachricht">Ihre Nachricht</label>
-              <textarea id="nachricht" placeholder="Wie kann ich Ihnen helfen?"></textarea>
+              <textarea id="nachricht" name="nachricht" placeholder="Wie kann ich Ihnen helfen?" required></textarea>
             </div>
-            <button type="submit" class="form-submit">Nachricht senden →</button>
+            <button type="submit" class="form-submit" id="submit-btn">Nachricht senden →</button>
           </form>
         </div>
       </div>
@@ -2282,6 +2292,39 @@
         setTimeout(() => banner.style.display = 'none', 300);
       });
     })();
+  </script>
+
+  <script>
+    const form = document.getElementById('kontakt-formular');
+    if (form) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('submit-btn');
+        const betreff = document.getElementById('betreff').value;
+        document.getElementById('subject-hidden').value = betreff
+          ? 'Kontaktanfrage: ' + betreff
+          : 'Neue Kontaktanfrage';
+        btn.disabled = true;
+        btn.textContent = 'Wird gesendet …';
+        const data = new FormData(form);
+        try {
+          const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+          const json = await res.json();
+          if (json.success) {
+            document.getElementById('form-success').style.display = 'block';
+            document.getElementById('form-error').style.display = 'none';
+            form.reset();
+          } else {
+            throw new Error(json.message);
+          }
+        } catch {
+          document.getElementById('form-error').style.display = 'block';
+          document.getElementById('form-success').style.display = 'none';
+        }
+        btn.disabled = false;
+        btn.textContent = 'Nachricht senden →';
+      });
+    }
   </script>
 </body>
 </html>
